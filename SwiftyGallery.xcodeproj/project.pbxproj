@@ -9,19 +9,18 @@
 /* Begin PBXBuildFile section */
 		DFAAFC792A9417830041D986 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC782A9417830041D986 /* AppDelegate.swift */; };
 		DFAAFC7B2A9417830041D986 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC7A2A9417830041D986 /* SceneDelegate.swift */; };
-		DFAAFC7D2A9417830041D986 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC7C2A9417830041D986 /* ViewController.swift */; };
-		DFAAFC802A9417830041D986 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFAAFC7E2A9417830041D986 /* Main.storyboard */; };
+		DFAAFC7D2A9417830041D986 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC7C2A9417830041D986 /* TabBarViewController.swift */; };
 		DFAAFC832A9417830041D986 /* SwiftyGallery.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC812A9417830041D986 /* SwiftyGallery.xcdatamodeld */; };
 		DFAAFC852A9417850041D986 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFAAFC842A9417850041D986 /* Assets.xcassets */; };
 		DFAAFC882A9417850041D986 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFAAFC862A9417850041D986 /* LaunchScreen.storyboard */; };
+		DFAAFC912A941CC30041D986 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DFAAFC902A941CC30041D986 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DFAAFC752A9417830041D986 /* SwiftyGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAAFC782A9417830041D986 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFAAFC7A2A9417830041D986 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DFAAFC7C2A9417830041D986 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DFAAFC7F2A9417830041D986 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DFAAFC7C2A9417830041D986 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		DFAAFC822A9417830041D986 /* SwiftyGallery.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftyGallery.xcdatamodel; sourceTree = "<group>"; };
 		DFAAFC842A9417850041D986 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFAAFC872A9417850041D986 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFAAFC912A941CC30041D986 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,8 +60,7 @@
 			children = (
 				DFAAFC782A9417830041D986 /* AppDelegate.swift */,
 				DFAAFC7A2A9417830041D986 /* SceneDelegate.swift */,
-				DFAAFC7C2A9417830041D986 /* ViewController.swift */,
-				DFAAFC7E2A9417830041D986 /* Main.storyboard */,
+				DFAAFC7C2A9417830041D986 /* TabBarViewController.swift */,
 				DFAAFC842A9417850041D986 /* Assets.xcassets */,
 				DFAAFC862A9417850041D986 /* LaunchScreen.storyboard */,
 				DFAAFC892A9417850041D986 /* Info.plist */,
@@ -86,6 +85,9 @@
 			dependencies = (
 			);
 			name = SwiftyGallery;
+			packageProductDependencies = (
+				DFAAFC902A941CC30041D986 /* Alamofire */,
+			);
 			productName = SwiftyGallery;
 			productReference = DFAAFC752A9417830041D986 /* SwiftyGallery.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +116,9 @@
 				Base,
 			);
 			mainGroup = DFAAFC6C2A9417820041D986;
+			packageReferences = (
+				DFAAFC8F2A941CC30041D986 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = DFAAFC762A9417830041D986 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -130,7 +135,6 @@
 			files = (
 				DFAAFC882A9417850041D986 /* LaunchScreen.storyboard in Resources */,
 				DFAAFC852A9417850041D986 /* Assets.xcassets in Resources */,
-				DFAAFC802A9417830041D986 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFAAFC832A9417830041D986 /* SwiftyGallery.xcdatamodeld in Sources */,
-				DFAAFC7D2A9417830041D986 /* ViewController.swift in Sources */,
+				DFAAFC7D2A9417830041D986 /* TabBarViewController.swift in Sources */,
 				DFAAFC792A9417830041D986 /* AppDelegate.swift in Sources */,
 				DFAAFC7B2A9417830041D986 /* SceneDelegate.swift in Sources */,
 			);
@@ -151,14 +155,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DFAAFC7E2A9417830041D986 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DFAAFC7F2A9417830041D986 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DFAAFC862A9417850041D986 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -222,7 +218,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -279,7 +275,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -301,9 +297,9 @@
 				INFOPLIST_FILE = SwiftyGallery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,9 +325,9 @@
 				INFOPLIST_FILE = SwiftyGallery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,6 +363,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DFAAFC8F2A941CC30041D986 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DFAAFC902A941CC30041D986 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFAAFC8F2A941CC30041D986 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DFAAFC812A9417830041D986 /* SwiftyGallery.xcdatamodeld */ = {
