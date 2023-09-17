@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF18A4802A9D6ADB005064DB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18A47F2A9D6ADB005064DB /* NetworkError.swift */; };
+		DF18A4822A9D6D3F005064DB /* AFError+NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18A4812A9D6D3F005064DB /* AFError+NetworkError.swift */; };
+		DF18A4842A9D6E80005064DB /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18A4832A9D6E80005064DB /* Endpoint.swift */; };
+		DF18A4872A9E43B6005064DB /* Pulse in Frameworks */ = {isa = PBXBuildFile; productRef = DF18A4862A9E43B6005064DB /* Pulse */; };
+		DF18A4892A9E43B6005064DB /* PulseUI in Frameworks */ = {isa = PBXBuildFile; productRef = DF18A4882A9E43B6005064DB /* PulseUI */; };
+		DF18A48B2A9E4546005064DB /* Session+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18A48A2A9E4546005064DB /* Session+Extensions.swift */; };
+		DF18A48E2A9E461C005064DB /* PulseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18A48D2A9E461C005064DB /* PulseUIView.swift */; };
 		DFAAFC792A9417830041D986 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC782A9417830041D986 /* AppDelegate.swift */; };
 		DFAAFC7B2A9417830041D986 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC7A2A9417830041D986 /* SceneDelegate.swift */; };
 		DFAAFC7D2A9417830041D986 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC7C2A9417830041D986 /* TabBarViewController.swift */; };
@@ -22,6 +29,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF18A47F2A9D6ADB005064DB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		DF18A4812A9D6D3F005064DB /* AFError+NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFError+NetworkError.swift"; sourceTree = "<group>"; };
+		DF18A4832A9D6E80005064DB /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		DF18A48A2A9E4546005064DB /* Session+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Extensions.swift"; sourceTree = "<group>"; };
+		DF18A48D2A9E461C005064DB /* PulseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseUIView.swift; sourceTree = "<group>"; };
 		DFAAFC752A9417830041D986 /* SwiftyGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAAFC782A9417830041D986 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFAAFC7A2A9417830041D986 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF18A4892A9E43B6005064DB /* PulseUI in Frameworks */,
+				DF18A4872A9E43B6005064DB /* Pulse in Frameworks */,
 				DFAAFC912A941CC30041D986 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +63,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF18A47D2A9D6AB8005064DB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DF18A47E2A9D6ACD005064DB /* Api */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DF18A47E2A9D6ACD005064DB /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				DF18A47F2A9D6ADB005064DB /* NetworkError.swift */,
+				DF18A4812A9D6D3F005064DB /* AFError+NetworkError.swift */,
+				DF18A4832A9D6E80005064DB /* Endpoint.swift */,
+				DF18A48A2A9E4546005064DB /* Session+Extensions.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		DF18A48C2A9E4613005064DB /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				DF18A48D2A9E461C005064DB /* PulseUIView.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		DFAAFC6C2A9417820041D986 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +109,7 @@
 		DFAAFC772A9417830041D986 /* SwiftyGallery */ = {
 			isa = PBXGroup;
 			children = (
+				DF18A47D2A9D6AB8005064DB /* Data */,
 				DFAAFC922A942A270041D986 /* UI */,
 				DFAAFC9D2A942B8D0041D986 /* Utils */,
 				DFAAFC782A9417830041D986 /* AppDelegate.swift */,
@@ -83,6 +125,7 @@
 		DFAAFC922A942A270041D986 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				DF18A48C2A9E4613005064DB /* Debug */,
 				DFAAFC962A942A580041D986 /* TabBar */,
 				DFAAFC942A942A320041D986 /* About */,
 				DFAAFC952A942A470041D986 /* Favorites */,
@@ -158,6 +201,8 @@
 			name = SwiftyGallery;
 			packageProductDependencies = (
 				DFAAFC902A941CC30041D986 /* Alamofire */,
+				DF18A4862A9E43B6005064DB /* Pulse */,
+				DF18A4882A9E43B6005064DB /* PulseUI */,
 			);
 			productName = SwiftyGallery;
 			productReference = DFAAFC752A9417830041D986 /* SwiftyGallery.app */;
@@ -189,6 +234,7 @@
 			mainGroup = DFAAFC6C2A9417820041D986;
 			packageReferences = (
 				DFAAFC8F2A941CC30041D986 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DF18A4852A9E43B6005064DB /* XCRemoteSwiftPackageReference "Pulse" */,
 			);
 			productRefGroup = DFAAFC762A9417830041D986 /* Products */;
 			projectDirPath = "";
@@ -216,7 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF18A48E2A9E461C005064DB /* PulseUIView.swift in Sources */,
 				DFAAFC982A942A7C0041D986 /* HomeViewController.swift in Sources */,
+				DF18A48B2A9E4546005064DB /* Session+Extensions.swift in Sources */,
+				DF18A4822A9D6D3F005064DB /* AFError+NetworkError.swift in Sources */,
 				DFAAFC832A9417830041D986 /* SwiftyGallery.xcdatamodeld in Sources */,
 				DFAAFC7D2A9417830041D986 /* TabBarViewController.swift in Sources */,
 				DFAAFC9C2A942AA70041D986 /* AboutViewController.swift in Sources */,
@@ -225,6 +274,8 @@
 				DFAAFC9A2A942A980041D986 /* FavoritesViewController.swift in Sources */,
 				DFAAFCA22A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift in Sources */,
 				DFAAFC7B2A9417830041D986 /* SceneDelegate.swift in Sources */,
+				DF18A4842A9D6E80005064DB /* Endpoint.swift in Sources */,
+				DF18A4802A9D6ADB005064DB /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +492,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DF18A4852A9E43B6005064DB /* XCRemoteSwiftPackageReference "Pulse" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Pulse";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.3;
+			};
+		};
 		DFAAFC8F2A941CC30041D986 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -452,6 +511,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DF18A4862A9E43B6005064DB /* Pulse */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF18A4852A9E43B6005064DB /* XCRemoteSwiftPackageReference "Pulse" */;
+			productName = Pulse;
+		};
+		DF18A4882A9E43B6005064DB /* PulseUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF18A4852A9E43B6005064DB /* XCRemoteSwiftPackageReference "Pulse" */;
+			productName = PulseUI;
+		};
 		DFAAFC902A941CC30041D986 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DFAAFC8F2A941CC30041D986 /* XCRemoteSwiftPackageReference "Alamofire" */;

@@ -7,12 +7,29 @@
 
 import UIKit
 
+#if DEBUG
+import SwiftUI
+import PulseUI
+#endif
+
 class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabs()
     }
+    
+#if DEBUG
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            let controller = UIHostingController(rootView: PulseUIView())
+            
+            controller.modalPresentationStyle = .pageSheet
+            
+            self.present(controller, animated: true)
+        }
+    }
+#endif
     
     private func configureTabs() {
         let homeVc = UINavigationController(rootViewController: HomeViewController())
