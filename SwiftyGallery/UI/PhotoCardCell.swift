@@ -168,6 +168,8 @@ class PhotoCardCell: UICollectionViewCell {
         return view
     }()
     
+    private var shadowLayer: CAShapeLayer!
+    
     init() {
         super.init(frame: .zero)
         setupViews()
@@ -196,8 +198,8 @@ class PhotoCardCell: UICollectionViewCell {
         buttonBlurView.contentView.addSubview(favoriteContentView)
         favoriteContentView.addSubview(favoriteButton)
         
-        self.contentView.layer.cornerRadius = 12
-        self.contentView.clipsToBounds = true
+        contentView.layer.cornerRadius = 12
+        contentView.clipsToBounds = true
     }
     
     private func configureConstraints() {
@@ -250,32 +252,31 @@ class PhotoCardCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         buttonBlurView.layer.cornerRadius = buttonBlurView.frame.width / 2
+        
+        if shadowLayer == nil {
+            shadowLayer = CAShapeLayer()
+            shadowLayer.path = UIBezierPath(roundedRect: contentView.bounds, cornerRadius: 12).cgPath
+            
+            shadowLayer.shadowColor = UIColor.darkGray.cgColor
+            shadowLayer.shadowPath = shadowLayer.path
+            shadowLayer.shadowOpacity = 0.5
+            shadowLayer.shadowRadius = 6
+            shadowLayer.shadowOffset = .zero
+            shadowLayer.shouldRasterize = true
+            shadowLayer.rasterizationScale = UIScreen.current?.scale ?? 1
+            
+            layer.insertSublayer(shadowLayer, at: 0)
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if shadowLayer != nil {
+            shadowLayer.rasterizationScale = UIScreen.current?.scale ?? 1
+        }
     }
 }
 
 @available(iOS 17.0, *)
 #Preview(traits: .fixedLayout(width: 215, height: 350)) {
     PhotoCardCell()
-}
-
-class CustomIntensityVisualEffectView: UIVisualEffectView {
-    
-    /// Create visual effect view with given effect and its intensity
-    ///
-    /// - Parameters:
-    ///   - effect: visual effect, eg UIBlurEffect(style: .dark)
-    ///   - intensity: custom intensity from 0.0 (no effect) to 1.0 (full effect) using linear scale
-    init(effect: UIVisualEffect, intensity: CGFloat) {
-        super.init(effect: nil)
-        animator = UIViewPropertyAnimator(duration: 0, curve: .linear) { [unowned self] in self.effect = effect }
-        animator.fractionComplete = intensity
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
-    
-    // MARK: Private
-    private var animator: UIViewPropertyAnimator!
-    
 }

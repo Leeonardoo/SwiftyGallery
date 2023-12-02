@@ -36,6 +36,9 @@
 		DFAAFC9C2A942AA70041D986 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC9B2A942AA70041D986 /* AboutViewController.swift */; };
 		DFAAFCA02A942BAE0041D986 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC9F2A942BAE0041D986 /* String+Extensions.swift */; };
 		DFAAFCA22A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFCA12A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift */; };
+		DFC499532B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC499522B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift */; };
+		DFC499552B1AC50C009F2947 /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC499542B1AC50C009F2947 /* UIWindow+Extensions.swift */; };
+		DFC499572B1AC524009F2947 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC499562B1AC524009F2947 /* UIScreen+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +64,9 @@
 		DFAAFC9B2A942AA70041D986 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DFAAFC9F2A942BAE0041D986 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		DFAAFCA12A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedStrings+Extensions.swift"; sourceTree = "<group>"; };
+		DFC499522B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIntensityVisualEffectView.swift; sourceTree = "<group>"; };
+		DFC499542B1AC50C009F2947 /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
+		DFC499562B1AC524009F2947 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,8 @@
 			children = (
 				DF7E4B7B2ACA35B700EF29A5 /* UIFont+Extensions.swift */,
 				DF7E4B7D2ACA35C000EF29A5 /* UIButton+Extensions.swift */,
+				DFC499542B1AC50C009F2947 /* UIWindow+Extensions.swift */,
+				DFC499562B1AC524009F2947 /* UIScreen+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -155,6 +163,7 @@
 		DFAAFC922A942A270041D986 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				DFC499512B1ABDAD009F2947 /* CustomViews */,
 				DF18A48C2A9E4613005064DB /* Debug */,
 				DFAAFC962A942A580041D986 /* TabBar */,
 				DFAAFC942A942A320041D986 /* About */,
@@ -213,6 +222,14 @@
 				DFAAFCA12A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DFC499512B1ABDAD009F2947 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				DFC499522B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF18A48E2A9E461C005064DB /* PulseUIView.swift in Sources */,
+				DFC499552B1AC50C009F2947 /* UIWindow+Extensions.swift in Sources */,
 				DFAAFC982A942A7C0041D986 /* HomeViewController.swift in Sources */,
 				DF18A48B2A9E4546005064DB /* Session+Extensions.swift in Sources */,
 				DF18A4822A9D6D3F005064DB /* AFError+NetworkError.swift in Sources */,
@@ -310,6 +328,7 @@
 				DFAAFC7D2A9417830041D986 /* TabBarViewController.swift in Sources */,
 				DF3817BC2AC4EC3700D3153F /* PreviewContainer.swift in Sources */,
 				DFAAFC9C2A942AA70041D986 /* AboutViewController.swift in Sources */,
+				DFC499532B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift in Sources */,
 				DFAAFCA02A942BAE0041D986 /* String+Extensions.swift in Sources */,
 				DF8FC4012AB7B7A8007AF9A5 /* PhotoCardCell.swift in Sources */,
 				DFAAFC792A9417830041D986 /* AppDelegate.swift in Sources */,
@@ -320,6 +339,7 @@
 				DF7E4B7C2ACA35B700EF29A5 /* UIFont+Extensions.swift in Sources */,
 				DF18A4842A9D6E80005064DB /* Endpoint.swift in Sources */,
 				DF18A4802A9D6ADB005064DB /* NetworkError.swift in Sources */,
+				DFC499572B1AC524009F2947 /* UIScreen+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
