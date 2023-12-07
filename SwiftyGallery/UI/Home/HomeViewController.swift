@@ -32,6 +32,8 @@ class HomeViewController: UICollectionViewController {
         }
     }()
     
+    private lazy var searchController = UISearchController(searchResultsController: nil)
+    
     init() {
         super.init(collectionViewLayout: flowLayout)
     }
@@ -45,13 +47,34 @@ class HomeViewController: UICollectionViewController {
         view.backgroundColor = .systemBackground
         navigationItem.title = "Home".localized
         navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         setupCollectionView()
+        setupSearchController()
         applySnapshot()
     }
     
     private func setupCollectionView() {
         collectionView.register(PhotoCardCell.self, forCellWithReuseIdentifier: PhotoCardCell.identifier)
+    }
+    
+    private func setupSearchController() {
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.automaticallyShowsSearchResultsController = true
+        self.searchController.hidesNavigationBarDuringPresentation = true
+        self.searchController.searchBar.placeholder = "Search"
+        
+        self.navigationItem.searchController = searchController
+        self.definesPresentationContext = true
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+    }
+}
+
+//MARK: - SearchController
+extension HomeViewController : UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        print("DEBUG PRINT: ", searchController.searchBar.text)
     }
 }
 
@@ -87,6 +110,6 @@ extension HomeViewController {
 
 @available(iOS 17.0, *)
 #Preview(traits: .fixedLayout(width: 215, height: 350)) {
-    HomeViewController()
+    UINavigationController(rootViewController: HomeViewController())
 }
 

@@ -16,11 +16,12 @@
 		DF18A48E2A9E461C005064DB /* PulseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18A48D2A9E461C005064DB /* PulseUIView.swift */; };
 		DF3817BC2AC4EC3700D3153F /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3817BB2AC4EC3700D3153F /* PreviewContainer.swift */; };
 		DF3817BF2AC5D4D100D3153F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817BE2AC5D4D100D3153F /* SnapKit */; };
-		DF3817C12AC5D4D100D3153F /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C02AC5D4D100D3153F /* SnapKit-Dynamic */; };
 		DF3817C42AC6331B00D3153F /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C32AC6331B00D3153F /* Nuke */; };
 		DF3817C62AC6331B00D3153F /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C52AC6331B00D3153F /* NukeExtensions */; };
 		DF3817C82AC6331B00D3153F /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C72AC6331B00D3153F /* NukeUI */; };
 		DF3817CA2AC6331B00D3153F /* NukeVideo in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C92AC6331B00D3153F /* NukeVideo */; };
+		DF69D5A62B1ECB35004A59E4 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = DF69D5A52B1ECB35004A59E4 /* SnapKit-Dynamic */; };
+		DF69D5A72B1ECB35004A59E4 /* SnapKit-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = DF69D5A52B1ECB35004A59E4 /* SnapKit-Dynamic */; };
 		DF7E4B7C2ACA35B700EF29A5 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7E4B7B2ACA35B700EF29A5 /* UIFont+Extensions.swift */; };
 		DF7E4B7E2ACA35C000EF29A5 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7E4B7D2ACA35C000EF29A5 /* UIButton+Extensions.swift */; };
 		DF8FC4012AB7B7A8007AF9A5 /* PhotoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8FC4002AB7B7A8007AF9A5 /* PhotoCardCell.swift */; };
@@ -40,6 +41,20 @@
 		DFC499552B1AC50C009F2947 /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC499542B1AC50C009F2947 /* UIWindow+Extensions.swift */; };
 		DFC499572B1AC524009F2947 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC499562B1AC524009F2947 /* UIScreen+Extensions.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DF69D5A32B1EC7E6004A59E4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DF69D5A72B1ECB35004A59E4 /* SnapKit-Dynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DF18A47F2A9D6ADB005064DB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -74,12 +89,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF3817C12AC5D4D100D3153F /* SnapKit-Dynamic in Frameworks */,
 				DF18A4892A9E43B6005064DB /* PulseUI in Frameworks */,
 				DF3817C62AC6331B00D3153F /* NukeExtensions in Frameworks */,
 				DF3817BF2AC5D4D100D3153F /* SnapKit in Frameworks */,
 				DF3817C42AC6331B00D3153F /* Nuke in Frameworks */,
 				DF18A4872A9E43B6005064DB /* Pulse in Frameworks */,
+				DF69D5A62B1ECB35004A59E4 /* SnapKit-Dynamic in Frameworks */,
 				DFAAFC912A941CC30041D986 /* Alamofire in Frameworks */,
 				DF3817CA2AC6331B00D3153F /* NukeVideo in Frameworks */,
 				DF3817C82AC6331B00D3153F /* NukeUI in Frameworks */,
@@ -127,11 +142,19 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		DF69D5A42B1EC929004A59E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DFAAFC6C2A9417820041D986 = {
 			isa = PBXGroup;
 			children = (
 				DFAAFC772A9417830041D986 /* SwiftyGallery */,
 				DFAAFC762A9417830041D986 /* Products */,
+				DF69D5A42B1EC929004A59E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,6 +265,7 @@
 				DFAAFC712A9417830041D986 /* Sources */,
 				DFAAFC722A9417830041D986 /* Frameworks */,
 				DFAAFC732A9417830041D986 /* Resources */,
+				DF69D5A32B1EC7E6004A59E4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,11 +277,11 @@
 				DF18A4862A9E43B6005064DB /* Pulse */,
 				DF18A4882A9E43B6005064DB /* PulseUI */,
 				DF3817BE2AC5D4D100D3153F /* SnapKit */,
-				DF3817C02AC5D4D100D3153F /* SnapKit-Dynamic */,
 				DF3817C32AC6331B00D3153F /* Nuke */,
 				DF3817C52AC6331B00D3153F /* NukeExtensions */,
 				DF3817C72AC6331B00D3153F /* NukeUI */,
 				DF3817C92AC6331B00D3153F /* NukeVideo */,
+				DF69D5A52B1ECB35004A59E4 /* SnapKit-Dynamic */,
 			);
 			productName = SwiftyGallery;
 			productReference = DFAAFC752A9417830041D986 /* SwiftyGallery.app */;
@@ -481,6 +505,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 273582M6R3;
@@ -498,6 +523,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.leeonardoo.SwiftyGallery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -509,6 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 273582M6R3;
@@ -526,6 +553,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.leeonardoo.SwiftyGallery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -606,11 +634,6 @@
 			package = DF3817BD2AC5D4D100D3153F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		DF3817C02AC5D4D100D3153F /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DF3817BD2AC5D4D100D3153F /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
-		};
 		DF3817C32AC6331B00D3153F /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DF3817C22AC6331B00D3153F /* XCRemoteSwiftPackageReference "Nuke" */;
@@ -630,6 +653,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DF3817C22AC6331B00D3153F /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeVideo;
+		};
+		DF69D5A52B1ECB35004A59E4 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF3817BD2AC5D4D100D3153F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
 		};
 		DFAAFC902A941CC30041D986 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

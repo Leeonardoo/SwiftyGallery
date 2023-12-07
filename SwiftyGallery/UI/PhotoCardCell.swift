@@ -274,6 +274,27 @@ class PhotoCardCell: UICollectionViewCell {
             shadowLayer.rasterizationScale = UIScreen.current?.scale ?? 1
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
+            self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
+            self.transform = .identity
+        }
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
+            self.transform = .identity
+        }
+    }
 }
 
 @available(iOS 17.0, *)
