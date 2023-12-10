@@ -13,11 +13,11 @@ import Pulse
 #endif
 
 extension Session {
-    static let appDefault = {
+    static let app = {
 #if DEBUG
         URLSessionProxyDelegate.enableAutomaticRegistration()
         Experimental.URLSessionProxy.shared.isEnabled = true
 #endif
         return Session(configuration: URLSessionConfiguration.af.default)
-    }
+    }()
 }

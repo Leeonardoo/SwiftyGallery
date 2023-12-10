@@ -52,6 +52,18 @@ class HomeViewController: UICollectionViewController {
         setupCollectionView()
         setupSearchController()
         applySnapshot()
+        
+        Task {
+            let test = await PhotosService().fetchPhotos(page: 1, perPage: 20)
+            
+            switch test {
+                case .success(let success):
+                    print(success)
+                    
+                case .failure(let failure):
+                    print(failure)
+            }
+        }
     }
     
     private func setupCollectionView() {
