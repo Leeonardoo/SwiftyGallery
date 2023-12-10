@@ -21,8 +21,6 @@ class PhotoCardCell: UICollectionViewCell {
         view.imageView.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         
-        view.request = ImageRequest(url: URL(string: "https://images.unsplash.com/photo-1695515115475-dc5495581ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxhbGx8NDJ8fHx8fHwyfHwxNjk1OTQwMzM4fA&ixlib=rb-4.0.3&q=80&w=400")!)
-        
         return view
     }()
     
@@ -42,14 +40,12 @@ class PhotoCardCell: UICollectionViewCell {
         return view
     }()
     
-    private let profileImageView: LazyImageView = {
+    private let userPhotoImageView: LazyImageView = {
         let view = LazyImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.imageView.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         view.processors = [ImageProcessors.Circle()]
-        
-        view.request = ImageRequest(url: URL(string: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2OTYyMDE2NzV8MA&ixlib=rb-4.0.3&q=80&w=400")!)
         
         return view
     }()
@@ -57,7 +53,6 @@ class PhotoCardCell: UICollectionViewCell {
     private let userLabelView: UILabel = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.text = "Karsten Winegeart"
         view.font = .preferredFont(forTextStyle: .caption1, weight: .medium)
         view.adjustsFontForContentSizeCategory = true
         view.textColor = .white
@@ -94,6 +89,12 @@ class PhotoCardCell: UICollectionViewCell {
     
     private var shadowLayer: CAShapeLayer!
     
+    var photo: Photo! {
+        didSet {
+            configure(with: photo)
+        }
+    }
+    
     init() {
         super.init(frame: .zero)
         setupViews()
@@ -115,7 +116,7 @@ class PhotoCardCell: UICollectionViewCell {
         
         contentView.addSubview(bottomBlurView)
         bottomBlurView.contentView.addSubview(bottomContentView)
-        bottomContentView.addSubview(profileImageView)
+        bottomContentView.addSubview(userPhotoImageView)
         bottomContentView.addSubview(userLabelView)
         
         contentView.addSubview(buttonBlurView)
@@ -140,7 +141,7 @@ class PhotoCardCell: UICollectionViewCell {
             make.bottom.equalToSuperview()
         }
         
-        profileImageView.snp.makeConstraints { make in
+        userPhotoImageView.snp.makeConstraints { make in
             make.top.greaterThanOrEqualToSuperview().inset(6)
             make.bottom.lessThanOrEqualToSuperview().inset(5)
             make.leading.equalToSuperview().inset(6)
@@ -150,9 +151,9 @@ class PhotoCardCell: UICollectionViewCell {
         userLabelView.snp.makeConstraints { make in
             make.top.greaterThanOrEqualToSuperview()
             make.bottom.lessThanOrEqualToSuperview()
-            make.centerY.equalTo(profileImageView.snp.centerY)
+            make.centerY.equalTo(userPhotoImageView.snp.centerY)
             make.trailing.equalToSuperview()
-            make.leading.equalTo(profileImageView.snp.trailing).inset(-6)
+            make.leading.equalTo(userPhotoImageView.snp.trailing).inset(-6)
         }
         
         favoriteContentView.snp.makeConstraints { make in
@@ -173,6 +174,15 @@ class PhotoCardCell: UICollectionViewCell {
         self.setNeedsLayout()
     }
     
+    private func configure(with photo: Photo) {
+//        favoriteButton
+        userPhotoImageView.request = ImageRequest(url: URL(string: photo.user.profileImage.small)!)
+        userLabelView.text = photo.user.name
+        imageView.request = ImageRequest(url: URL(string: photo.urls.regular)!)
+        
+        //TODO: Add another ImageView with smaller alpha and blur for an "colored shadow" effect
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         buttonBlurView.layer.cornerRadius = buttonBlurView.frame.width / 2
@@ -181,9 +191,9 @@ class PhotoCardCell: UICollectionViewCell {
             shadowLayer = CAShapeLayer()
             shadowLayer.path = UIBezierPath(roundedRect: contentView.bounds, cornerRadius: 12).cgPath
             
-            shadowLayer.shadowColor = UIColor.darkGray.cgColor
+            shadowLayer.shadowColor = UIColor.black.cgColor
             shadowLayer.shadowPath = shadowLayer.path
-            shadowLayer.shadowOpacity = 0.5
+            shadowLayer.shadowOpacity = 0.4
             shadowLayer.shadowRadius = 6
             shadowLayer.shadowOffset = .zero
             shadowLayer.shouldRasterize = true
@@ -223,5 +233,7 @@ class PhotoCardCell: UICollectionViewCell {
 
 @available(iOS 17.0, *)
 #Preview(traits: .fixedLayout(width: 215, height: 350)) {
-    PhotoCardCell()
+    let cell = PhotoCardCell()
+    cell.photo = demoPhoto
+    return cell
 }

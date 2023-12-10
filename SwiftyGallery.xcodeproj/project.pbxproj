@@ -32,6 +32,7 @@
 		DF69D5BF2B253D6B004A59E4 /* JSONDecoder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5BE2B253D6B004A59E4 /* JSONDecoder+Extensions.swift */; };
 		DF7E4B7C2ACA35B700EF29A5 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7E4B7B2ACA35B700EF29A5 /* UIFont+Extensions.swift */; };
 		DF7E4B7E2ACA35C000EF29A5 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7E4B7D2ACA35C000EF29A5 /* UIButton+Extensions.swift */; };
+		DF7F1EB92B26472800319980 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F1EB82B26472800319980 /* UIColor+Extensions.swift */; };
 		DF8FC4012AB7B7A8007AF9A5 /* PhotoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8FC4002AB7B7A8007AF9A5 /* PhotoCardCell.swift */; };
 		DFAAFC792A9417830041D986 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC782A9417830041D986 /* AppDelegate.swift */; };
 		DFAAFC7B2A9417830041D986 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC7A2A9417830041D986 /* SceneDelegate.swift */; };
@@ -79,6 +80,7 @@
 		DF69D5BE2B253D6B004A59E4 /* JSONDecoder+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extensions.swift"; sourceTree = "<group>"; };
 		DF7E4B7B2ACA35B700EF29A5 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		DF7E4B7D2ACA35C000EF29A5 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		DF7F1EB82B26472800319980 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DF8FC4002AB7B7A8007AF9A5 /* PhotoCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardCell.swift; sourceTree = "<group>"; };
 		DFAAFC752A9417830041D986 /* SwiftyGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAAFC782A9417830041D986 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				DF69D5B32B23E9ED004A59E4 /* Logger+Extensions.swift */,
 				DFAAFC9F2A942BAE0041D986 /* String+Extensions.swift */,
 				DFAAFCA12A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift */,
+				DF7F1EB82B26472800319980 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				DFAAFC832A9417830041D986 /* SwiftyGallery.xcdatamodeld in Sources */,
 				DFAAFC7D2A9417830041D986 /* TabBarViewController.swift in Sources */,
 				DF3817BC2AC4EC3700D3153F /* PreviewContainer.swift in Sources */,
+				DF7F1EB92B26472800319980 /* UIColor+Extensions.swift in Sources */,
 				DFAAFC9C2A942AA70041D986 /* AboutViewController.swift in Sources */,
 				DF69D5AD2B221F3D004A59E4 /* PhotosService.swift in Sources */,
 				DFC499532B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift in Sources */,

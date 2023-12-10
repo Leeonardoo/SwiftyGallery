@@ -59,9 +59,11 @@ class HomeViewController: UICollectionViewController {
             switch test {
                 case .success(let success):
                     print(success)
+                    applySnapshot(photos: success)
                     
                 case .failure(let failure):
                     print(failure)
+                    applySnapshot()
             }
         }
     }
@@ -75,7 +77,7 @@ class HomeViewController: UICollectionViewController {
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.automaticallyShowsSearchResultsController = true
         self.searchController.hidesNavigationBarDuringPresentation = true
-        self.searchController.searchBar.placeholder = "Search"
+        self.searchController.searchBar.placeholder = "Search".localized
         
         self.navigationItem.searchController = searchController
         self.definesPresentationContext = true
@@ -86,14 +88,14 @@ class HomeViewController: UICollectionViewController {
 //MARK: - SearchController
 extension HomeViewController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        print("DEBUG PRINT: ", searchController.searchBar.text)
+//        print("DEBUG PRINT: ", searchController.searchBar.text)
     }
 }
 
 //MARK: - DataSource
 extension HomeViewController {
-    typealias DataSource = UICollectionViewDiffableDataSource<Int, Int>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Int>
+    typealias DataSource = UICollectionViewDiffableDataSource<Int, Photo>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Photo>
     
     private func makeDataSource() -> DataSource {
         let dataSource = DataSource(
@@ -102,15 +104,16 @@ extension HomeViewController {
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: PhotoCardCell.identifier,
                     for: indexPath) as? PhotoCardCell
+                cell?.photo = item
                 return cell
             })
         return dataSource
     }
     
-    func applySnapshot(animatingDifferences: Bool = true) {
+    func applySnapshot(animatingDifferences: Bool = true, photos: [Photo]? = nil) {
         var snapshot = Snapshot()
         snapshot.appendSections([1])
-        snapshot.appendItems([1, 2, 3, 4, 5, 6])
+        snapshot.appendItems(photos ?? [])
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 }
