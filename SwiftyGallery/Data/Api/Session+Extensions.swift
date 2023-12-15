@@ -18,6 +18,9 @@ extension Session {
         URLSessionProxyDelegate.enableAutomaticRegistration()
         Experimental.URLSessionProxy.shared.isEnabled = true
 #endif
-        return Session(configuration: URLSessionConfiguration.af.default)
+        var configuration = URLSessionConfiguration.af.default
+        configuration.requestCachePolicy = .reloadIgnoringCacheData
+        configuration.urlCache = nil
+        return Session(configuration: configuration)
     }()
 }

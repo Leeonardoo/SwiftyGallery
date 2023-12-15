@@ -19,6 +19,7 @@ class PhotoCardCell: UICollectionViewCell {
         let view = LazyImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.imageView.contentMode = .scaleAspectFill
+        view.placeholderView = nil
         view.clipsToBounds = true
         
         return view
@@ -44,6 +45,7 @@ class PhotoCardCell: UICollectionViewCell {
         let view = LazyImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.imageView.contentMode = .scaleAspectFill
+        view.placeholderView = nil
         view.clipsToBounds = true
         view.processors = [ImageProcessors.Circle()]
         
@@ -98,13 +100,13 @@ class PhotoCardCell: UICollectionViewCell {
     init() {
         super.init(frame: .zero)
         setupViews()
-        configureConstraints()
+        setupConstraints()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
-        configureConstraints()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -127,7 +129,7 @@ class PhotoCardCell: UICollectionViewCell {
         contentView.clipsToBounds = true
     }
     
-    private func configureConstraints() {
+    private func setupConstraints() {
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -176,9 +178,9 @@ class PhotoCardCell: UICollectionViewCell {
     
     private func configure(with photo: Photo) {
 //        favoriteButton
-        userPhotoImageView.request = ImageRequest(url: URL(string: photo.user.profileImage.small)!)
+        userPhotoImageView.request = ImageRequest(url: URL(string: photo.user.profileImage.small)!, options: .reloadIgnoringCachedData)
         userLabelView.text = photo.user.name
-        imageView.request = ImageRequest(url: URL(string: photo.urls.regular)!)
+        imageView.request = ImageRequest(url: URL(string: photo.urls.regular)!, options: .reloadIgnoringCachedData)
         
         //TODO: Add another ImageView with smaller alpha and blur for an "colored shadow" effect
     }

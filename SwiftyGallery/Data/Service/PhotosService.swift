@@ -11,8 +11,12 @@ import OSLog
 
 struct PhotosService {
     
-    func fetchPhotos(page: Int, perPage: Int, query: String? = nil) async -> Result<[Photo], NetworkError<NothingDecodable>> {
+    func fetchPhotos(page: Int, perPage: Int, refresh: Bool = false, query: String? = nil) async -> Result<[Photo], NetworkError<NothingDecodable>> {
         let url = PhotosEndpoint.photoList(page: page, perPage: perPage, query: query)
+        
+        if refresh {
+            try? URLCache.shared.removeCachedResponse(for: url.asURLRequest())
+        }
         
         let dataTask = Session.app.request(url)
             .validate()

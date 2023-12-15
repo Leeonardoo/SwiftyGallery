@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 class HomeViewController: UICollectionViewController {
     
+    private var subscriptions: Set<AnyCancellable> = []
     private lazy var dataSource = makeDataSource()
     
     private let flowLayout: UICollectionViewLayout = {
@@ -34,6 +36,44 @@ class HomeViewController: UICollectionViewController {
     
     private lazy var searchController = UISearchController(searchResultsController: nil)
     
+    private let viewModel = HomeViewModel()
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .large)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
+        
+        return view
+    }()
+    
+    private lazy var errorIcon: UIImageView = {
+        let configuration = UIImage.SymbolConfiguration(paletteColors: [.systemGray])
+        let view = UIImageView(image: UIImage(systemName: "exclamationmark.triangle.fill",
+                                              withConfiguration: configuration))
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
+    
+    private lazy var errorLabel: UILabel = {
+        let view = UILabel()
+        view.font = .preferredFont(forTextStyle: .subheadline)
+        view.textColor = .secondaryLabel
+        view.textAlignment = .center
+        view.numberOfLines = 0
+        return view
+    }()
+    
+    private lazy var errorContainer: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [errorIcon, errorLabel])
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
+        view.axis = .vertical
+        view.spacing = 16
+        view.alignment = .center
+        
+        return view
+    }()
+    
     init() {
         super.init(collectionViewLayout: flowLayout)
     }
@@ -49,27 +89,62 @@ class HomeViewController: UICollectionViewController {
         navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
+        setupViews()
+        setupConstraints()
         setupCollectionView()
         setupSearchController()
         applySnapshot()
+        setupObservers()
+    }
+    
+    private func setupObservers() {
+        viewModel.photosPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] photos in
+                self?.applySnapshot(photos: photos)
+            }.store(in: &subscriptions)
         
-        Task {
-            let test = await PhotosService().fetchPhotos(page: 1, perPage: 20)
-            
-            switch test {
-                case .success(let success):
-                    print(success)
-                    applySnapshot(photos: success)
-                    
-                case .failure(let failure):
-                    print(failure)
-                    applySnapshot()
+        viewModel.isLoadingPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoading in
+                guard let self = self else { return }
+                
+                if viewModel.photos.isEmpty && isLoading {
+                    activityIndicator.startAnimating()
+                    activityIndicator.isHidden = false
+                } else {
+                    activityIndicator.stopAnimating()
+                    activityIndicator.isHidden = true
+                }
+            }.store(in: &subscriptions)
+        
+        viewModel.errorPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                guard let self = self else { return }
+                
+                guard let error = error else {
+                    errorContainer.isHidden = true
+                    return
+                }
+                guard viewModel.photos.isEmpty else {
+                    errorContainer.isHidden = true
+                    return
+                }
+                
+                errorContainer.isHidden = false
+                errorLabel.text = error.localizedDescription
             }
-        }
+            .store(in: &subscriptions)
     }
     
     private func setupCollectionView() {
         collectionView.register(PhotoCardCell.self, forCellWithReuseIdentifier: PhotoCardCell.identifier)
+    }
+    
+    private func setupViews() {
+        view.addSubview(activityIndicator)
+        view.addSubview(errorContainer)
     }
     
     private func setupSearchController() {
@@ -83,12 +158,29 @@ class HomeViewController: UICollectionViewController {
         self.definesPresentationContext = true
         self.navigationItem.hidesSearchBarWhenScrolling = false
     }
+    
+    private func setupConstraints() {
+        activityIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        errorIcon.snp.makeConstraints { make in
+            make.size.equalTo(40)
+        }
+        errorContainer.snp.makeConstraints { make in
+            make.top.greaterThanOrEqualToSuperview().inset(32)
+            make.bottom.lessThanOrEqualToSuperview().inset(32)
+            make.leading.greaterThanOrEqualToSuperview().inset(32)
+            make.trailing.lessThanOrEqualToSuperview().inset(32)
+            make.center.equalToSuperview()
+        }
+    }
 }
 
 //MARK: - SearchController
 extension HomeViewController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-//        print("DEBUG PRINT: ", searchController.searchBar.text)
+        //        print("DEBUG PRINT: ", searchController.searchBar.text)
     }
 }
 
@@ -120,6 +212,12 @@ extension HomeViewController {
 
 //MARK: - CollectionViewDelegate
 extension HomeViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.photos.count - 6 {
+            viewModel.fetchPhotos()
+        }
+    }
     
 }
 

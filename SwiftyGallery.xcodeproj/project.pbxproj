@@ -15,13 +15,10 @@
 		DF18A48B2A9E4546005064DB /* Session+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18A48A2A9E4546005064DB /* Session+Extensions.swift */; };
 		DF18A48E2A9E461C005064DB /* PulseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18A48D2A9E461C005064DB /* PulseUIView.swift */; };
 		DF3817BC2AC4EC3700D3153F /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3817BB2AC4EC3700D3153F /* PreviewContainer.swift */; };
-		DF3817BF2AC5D4D100D3153F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817BE2AC5D4D100D3153F /* SnapKit */; };
 		DF3817C42AC6331B00D3153F /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C32AC6331B00D3153F /* Nuke */; };
 		DF3817C62AC6331B00D3153F /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C52AC6331B00D3153F /* NukeExtensions */; };
 		DF3817C82AC6331B00D3153F /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C72AC6331B00D3153F /* NukeUI */; };
 		DF3817CA2AC6331B00D3153F /* NukeVideo in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C92AC6331B00D3153F /* NukeVideo */; };
-		DF69D5A62B1ECB35004A59E4 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = DF69D5A52B1ECB35004A59E4 /* SnapKit-Dynamic */; };
-		DF69D5A72B1ECB35004A59E4 /* SnapKit-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = DF69D5A52B1ECB35004A59E4 /* SnapKit-Dynamic */; };
 		DF69D5AB2B221A8F004A59E4 /* PhotosEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5AA2B221A8F004A59E4 /* PhotosEndpoint.swift */; };
 		DF69D5AD2B221F3D004A59E4 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5AC2B221F3D004A59E4 /* PhotosService.swift */; };
 		DF69D5B02B222019004A59E4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5AF2B222019004A59E4 /* Photo.swift */; };
@@ -33,6 +30,9 @@
 		DF7E4B7C2ACA35B700EF29A5 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7E4B7B2ACA35B700EF29A5 /* UIFont+Extensions.swift */; };
 		DF7E4B7E2ACA35C000EF29A5 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7E4B7D2ACA35C000EF29A5 /* UIButton+Extensions.swift */; };
 		DF7F1EB92B26472800319980 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F1EB82B26472800319980 /* UIColor+Extensions.swift */; };
+		DF7F1EBB2B264B3A00319980 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F1EBA2B264B3A00319980 /* HomeViewModel.swift */; };
+		DF7F1EBD2B26515800319980 /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F1EBC2B26515800319980 /* Task+Extensions.swift */; };
+		DF7F1EC12B29060C00319980 /* PagingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F1EC02B29060C00319980 /* PagingState.swift */; };
 		DF8FC4012AB7B7A8007AF9A5 /* PhotoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8FC4002AB7B7A8007AF9A5 /* PhotoCardCell.swift */; };
 		DFAAFC792A9417830041D986 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC782A9417830041D986 /* AppDelegate.swift */; };
 		DFAAFC7B2A9417830041D986 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC7A2A9417830041D986 /* SceneDelegate.swift */; };
@@ -46,6 +46,7 @@
 		DFAAFC9C2A942AA70041D986 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC9B2A942AA70041D986 /* AboutViewController.swift */; };
 		DFAAFCA02A942BAE0041D986 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC9F2A942BAE0041D986 /* String+Extensions.swift */; };
 		DFAAFCA22A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFCA12A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift */; };
+		DFBC0F702B2C08D9006018DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DFBC0F6F2B2C08D9006018DD /* SnapKit */; };
 		DFC499532B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC499522B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift */; };
 		DFC499552B1AC50C009F2947 /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC499542B1AC50C009F2947 /* UIWindow+Extensions.swift */; };
 		DFC499572B1AC524009F2947 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC499562B1AC524009F2947 /* UIScreen+Extensions.swift */; };
@@ -58,7 +59,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DF69D5A72B1ECB35004A59E4 /* SnapKit-Dynamic in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +81,9 @@
 		DF7E4B7B2ACA35B700EF29A5 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		DF7E4B7D2ACA35C000EF29A5 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		DF7F1EB82B26472800319980 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		DF7F1EBA2B264B3A00319980 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		DF7F1EBC2B26515800319980 /* Task+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extensions.swift"; sourceTree = "<group>"; };
+		DF7F1EC02B29060C00319980 /* PagingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingState.swift; sourceTree = "<group>"; };
 		DF8FC4002AB7B7A8007AF9A5 /* PhotoCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardCell.swift; sourceTree = "<group>"; };
 		DFAAFC752A9417830041D986 /* SwiftyGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAAFC782A9417830041D986 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,14 +111,13 @@
 				DF18A4892A9E43B6005064DB /* PulseUI in Frameworks */,
 				DF3817C62AC6331B00D3153F /* NukeExtensions in Frameworks */,
 				DF69D5BB2B252605004A59E4 /* HelperCoders in Frameworks */,
-				DF3817BF2AC5D4D100D3153F /* SnapKit in Frameworks */,
 				DF3817C42AC6331B00D3153F /* Nuke in Frameworks */,
 				DF18A4872A9E43B6005064DB /* Pulse in Frameworks */,
-				DF69D5A62B1ECB35004A59E4 /* SnapKit-Dynamic in Frameworks */,
 				DFAAFC912A941CC30041D986 /* Alamofire in Frameworks */,
 				DF3817CA2AC6331B00D3153F /* NukeVideo in Frameworks */,
 				DF3817C82AC6331B00D3153F /* NukeUI in Frameworks */,
 				DF69D5BD2B252605004A59E4 /* MetaCodable in Frameworks */,
+				DFBC0F702B2C08D9006018DD /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				DF69D5AF2B222019004A59E4 /* Photo.swift */,
+				DF7F1EC02B29060C00319980 /* PagingState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				DFAAFC972A942A7C0041D986 /* HomeViewController.swift */,
+				DF7F1EBA2B264B3A00319980 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -284,6 +288,7 @@
 				DFAAFC9F2A942BAE0041D986 /* String+Extensions.swift */,
 				DFAAFCA12A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift */,
 				DF7F1EB82B26472800319980 /* UIColor+Extensions.swift */,
+				DF7F1EBC2B26515800319980 /* Task+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -317,14 +322,13 @@
 				DFAAFC902A941CC30041D986 /* Alamofire */,
 				DF18A4862A9E43B6005064DB /* Pulse */,
 				DF18A4882A9E43B6005064DB /* PulseUI */,
-				DF3817BE2AC5D4D100D3153F /* SnapKit */,
 				DF3817C32AC6331B00D3153F /* Nuke */,
 				DF3817C52AC6331B00D3153F /* NukeExtensions */,
 				DF3817C72AC6331B00D3153F /* NukeUI */,
 				DF3817C92AC6331B00D3153F /* NukeVideo */,
-				DF69D5A52B1ECB35004A59E4 /* SnapKit-Dynamic */,
 				DF69D5BA2B252605004A59E4 /* HelperCoders */,
 				DF69D5BC2B252605004A59E4 /* MetaCodable */,
+				DFBC0F6F2B2C08D9006018DD /* SnapKit */,
 			);
 			productName = SwiftyGallery;
 			productReference = DFAAFC752A9417830041D986 /* SwiftyGallery.app */;
@@ -357,9 +361,9 @@
 			packageReferences = (
 				DFAAFC8F2A941CC30041D986 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				DF18A4852A9E43B6005064DB /* XCRemoteSwiftPackageReference "Pulse" */,
-				DF3817BD2AC5D4D100D3153F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DF3817C22AC6331B00D3153F /* XCRemoteSwiftPackageReference "Nuke" */,
 				DF69D5B92B252605004A59E4 /* XCRemoteSwiftPackageReference "MetaCodable" */,
+				DFBC0F6E2B2C08D9006018DD /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = DFAAFC762A9417830041D986 /* Products */;
 			projectDirPath = "";
@@ -402,17 +406,20 @@
 				DFAAFC9C2A942AA70041D986 /* AboutViewController.swift in Sources */,
 				DF69D5AD2B221F3D004A59E4 /* PhotosService.swift in Sources */,
 				DFC499532B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift in Sources */,
+				DF7F1EBB2B264B3A00319980 /* HomeViewModel.swift in Sources */,
 				DFAAFCA02A942BAE0041D986 /* String+Extensions.swift in Sources */,
 				DF69D5AB2B221A8F004A59E4 /* PhotosEndpoint.swift in Sources */,
 				DF69D5BF2B253D6B004A59E4 /* JSONDecoder+Extensions.swift in Sources */,
 				DF8FC4012AB7B7A8007AF9A5 /* PhotoCardCell.swift in Sources */,
 				DFAAFC792A9417830041D986 /* AppDelegate.swift in Sources */,
 				DFAAFC9A2A942A980041D986 /* FavoritesViewController.swift in Sources */,
+				DF7F1EBD2B26515800319980 /* Task+Extensions.swift in Sources */,
 				DFAAFCA22A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift in Sources */,
 				DF7E4B7E2ACA35C000EF29A5 /* UIButton+Extensions.swift in Sources */,
 				DFAAFC7B2A9417830041D986 /* SceneDelegate.swift in Sources */,
 				DF7E4B7C2ACA35B700EF29A5 /* UIFont+Extensions.swift in Sources */,
 				DF18A4842A9D6E80005064DB /* Endpoint.swift in Sources */,
+				DF7F1EC12B29060C00319980 /* PagingState.swift in Sources */,
 				DF18A4802A9D6ADB005064DB /* NetworkError.swift in Sources */,
 				DFC499572B1AC524009F2947 /* UIScreen+Extensions.swift in Sources */,
 			);
@@ -643,14 +650,6 @@
 				minimumVersion = 4.0.3;
 			};
 		};
-		DF3817BD2AC5D4D100D3153F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.6.0;
-			};
-		};
 		DF3817C22AC6331B00D3153F /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke";
@@ -675,6 +674,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		DFBC0F6E2B2C08D9006018DD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -687,11 +694,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DF18A4852A9E43B6005064DB /* XCRemoteSwiftPackageReference "Pulse" */;
 			productName = PulseUI;
-		};
-		DF3817BE2AC5D4D100D3153F /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DF3817BD2AC5D4D100D3153F /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
 		};
 		DF3817C32AC6331B00D3153F /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -713,11 +715,6 @@
 			package = DF3817C22AC6331B00D3153F /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeVideo;
 		};
-		DF69D5A52B1ECB35004A59E4 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DF3817BD2AC5D4D100D3153F /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
-		};
 		DF69D5BA2B252605004A59E4 /* HelperCoders */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DF69D5B92B252605004A59E4 /* XCRemoteSwiftPackageReference "MetaCodable" */;
@@ -732,6 +729,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DFAAFC8F2A941CC30041D986 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		DFBC0F6F2B2C08D9006018DD /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFBC0F6E2B2C08D9006018DD /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 
