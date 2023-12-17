@@ -87,7 +87,8 @@ class HomeViewController: UICollectionViewController {
         view.backgroundColor = .systemBackground
         navigationItem.title = "Home".localized
         navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
+        collectionView.keyboardDismissMode = .onDrag
         
         setupViews()
         setupConstraints()
@@ -180,7 +181,7 @@ class HomeViewController: UICollectionViewController {
 //MARK: - SearchController
 extension HomeViewController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        //        print("DEBUG PRINT: ", searchController.searchBar.text)
+        viewModel.searchSubject.send(searchController.searchBar.text ?? "")
     }
 }
 

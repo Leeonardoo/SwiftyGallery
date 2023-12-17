@@ -97,12 +97,6 @@ class PhotoCardCell: UICollectionViewCell {
         }
     }
     
-    init() {
-        super.init(frame: .zero)
-        setupViews()
-        setupConstraints()
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()

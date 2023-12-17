@@ -53,16 +53,36 @@ class HomeViewModel {
         }
     }
     
+    private var currentQuery = ""
+    let searchSubject = PassthroughSubject<String, Never>()
+    
     init() {
         fetchPhotos()
+        
+        searchSubject
+            .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] query in
+                guard let self else { return }
+                
+                if query != currentQuery {
+                    currentQuery = query
+                    refresh()
+                }
+            }.store(in: &subscriptions)
     }
     
     func fetchPhotos() {
         guard !isLoading, !endReached else { return }
         
         isLoadingSubject.send(true)
+        errorSubject.send(nil)
         Task {
-            let result = await service.fetchPhotos(page: currentPage, perPage: 20)
+            let result = if currentQuery.isEmpty {
+                await service.fetchPhotos(page: currentPage, perPage: 20)
+            } else {
+                await service.searchPhotos(page: currentPage, perPage: 20, query: currentQuery)
+            }
             
             switch result {
                 case .success(let photos):
@@ -80,6 +100,7 @@ class HomeViewModel {
     func refresh() {
         currentPage = 1
         endReached = false
+        photosSubject.send([])
         fetchPhotos()
     }
     

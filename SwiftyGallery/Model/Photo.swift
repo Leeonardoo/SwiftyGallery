@@ -8,6 +8,10 @@
 import Foundation
 import MetaCodable
 
+struct PhotosResult: Decodable {
+    let results: [Photo]
+}
+
 // Tags?
 struct Photo: Decodable, Hashable {
     let id: String
