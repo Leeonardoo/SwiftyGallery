@@ -19,6 +19,7 @@
 		DF3817C62AC6331B00D3153F /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C52AC6331B00D3153F /* NukeExtensions */; };
 		DF3817C82AC6331B00D3153F /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C72AC6331B00D3153F /* NukeUI */; };
 		DF3817CA2AC6331B00D3153F /* NukeVideo in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C92AC6331B00D3153F /* NukeVideo */; };
+		DF607A912B37688000812393 /* TabBarReselectHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF607A902B37688000812393 /* TabBarReselectHandler.swift */; };
 		DF69D5AB2B221A8F004A59E4 /* PhotosEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5AA2B221A8F004A59E4 /* PhotosEndpoint.swift */; };
 		DF69D5AD2B221F3D004A59E4 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5AC2B221F3D004A59E4 /* PhotosService.swift */; };
 		DF69D5B02B222019004A59E4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5AF2B222019004A59E4 /* Photo.swift */; };
@@ -43,7 +44,6 @@
 		DFAAFC912A941CC30041D986 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DFAAFC902A941CC30041D986 /* Alamofire */; };
 		DFAAFC982A942A7C0041D986 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC972A942A7C0041D986 /* HomeViewController.swift */; };
 		DFAAFC9A2A942A980041D986 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC992A942A980041D986 /* FavoritesViewController.swift */; };
-		DFAAFC9C2A942AA70041D986 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC9B2A942AA70041D986 /* AboutViewController.swift */; };
 		DFAAFCA02A942BAE0041D986 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC9F2A942BAE0041D986 /* String+Extensions.swift */; };
 		DFAAFCA22A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFCA12A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift */; };
 		DFBC0F702B2C08D9006018DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DFBC0F6F2B2C08D9006018DD /* SnapKit */; };
@@ -72,6 +72,7 @@
 		DF18A48A2A9E4546005064DB /* Session+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Extensions.swift"; sourceTree = "<group>"; };
 		DF18A48D2A9E461C005064DB /* PulseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseUIView.swift; sourceTree = "<group>"; };
 		DF3817BB2AC4EC3700D3153F /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
+		DF607A902B37688000812393 /* TabBarReselectHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarReselectHandler.swift; sourceTree = "<group>"; };
 		DF69D5AA2B221A8F004A59E4 /* PhotosEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosEndpoint.swift; sourceTree = "<group>"; };
 		DF69D5AC2B221F3D004A59E4 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		DF69D5AF2B222019004A59E4 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		DFAAFC892A9417850041D986 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFAAFC972A942A7C0041D986 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DFAAFC992A942A980041D986 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		DFAAFC9B2A942AA70041D986 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DFAAFC9F2A942BAE0041D986 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		DFAAFCA12A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedStrings+Extensions.swift"; sourceTree = "<group>"; };
 		DFC499522B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIntensityVisualEffectView.swift; sourceTree = "<group>"; };
@@ -151,6 +151,13 @@
 				DF18A48D2A9E461C005064DB /* PulseUIView.swift */,
 			);
 			path = Debug;
+			sourceTree = "<group>";
+		};
+		DF607A8F2B37675F00812393 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		DF69D5A42B1EC929004A59E4 /* Frameworks */ = {
@@ -225,12 +232,13 @@
 			children = (
 				DFC499512B1ABDAD009F2947 /* CustomViews */,
 				DF18A48C2A9E4613005064DB /* Debug */,
-				DFAAFC962A942A580041D986 /* TabBar */,
-				DFAAFC942A942A320041D986 /* About */,
+				DF607A8F2B37675F00812393 /* Details */,
 				DFAAFC952A942A470041D986 /* Favorites */,
 				DFAAFC932A942A2C0041D986 /* Home */,
 				DF8FC4002AB7B7A8007AF9A5 /* PhotoCardCell.swift */,
 				DF3817BB2AC4EC3700D3153F /* PreviewContainer.swift */,
+				DFAAFC962A942A580041D986 /* TabBar */,
+				DF607A902B37688000812393 /* TabBarReselectHandler.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -242,14 +250,6 @@
 				DF7F1EBA2B264B3A00319980 /* HomeViewModel.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		DFAAFC942A942A320041D986 /* About */ = {
-			isa = PBXGroup;
-			children = (
-				DFAAFC9B2A942AA70041D986 /* AboutViewController.swift */,
-			);
-			path = About;
 			sourceTree = "<group>";
 		};
 		DFAAFC952A942A470041D986 /* Favorites */ = {
@@ -403,7 +403,6 @@
 				DFAAFC7D2A9417830041D986 /* TabBarViewController.swift in Sources */,
 				DF3817BC2AC4EC3700D3153F /* PreviewContainer.swift in Sources */,
 				DF7F1EB92B26472800319980 /* UIColor+Extensions.swift in Sources */,
-				DFAAFC9C2A942AA70041D986 /* AboutViewController.swift in Sources */,
 				DF69D5AD2B221F3D004A59E4 /* PhotosService.swift in Sources */,
 				DFC499532B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift in Sources */,
 				DF7F1EBB2B264B3A00319980 /* HomeViewModel.swift in Sources */,
@@ -422,6 +421,7 @@
 				DF7F1EC12B29060C00319980 /* PagingState.swift in Sources */,
 				DF18A4802A9D6ADB005064DB /* NetworkError.swift in Sources */,
 				DFC499572B1AC524009F2947 /* UIScreen+Extensions.swift in Sources */,
+				DF607A912B37688000812393 /* TabBarReselectHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

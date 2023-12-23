@@ -16,6 +16,7 @@ class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
         configureTabs()
     }
     
@@ -44,12 +45,26 @@ class TabBarViewController: UITabBarController {
                                               image: UIImage(systemName: "star.fill"),
                                               tag: 1)
         
-        let aboutVc = UINavigationController(rootViewController: AboutViewController())
-        aboutVc.navigationBar.prefersLargeTitles = true
-        aboutVc.tabBarItem = UITabBarItem(title: "About".localized,
-                                          image: UIImage(systemName: "info.circle.fill"),
-                                          tag: 2)
+        viewControllers = [homeVc, favoritesVc]
+    }
+}
+
+extension TabBarViewController: UITabBarControllerDelegate {
+    
+    /// We want to handle the reselection of a tab that either goes back to the root
+    /// ViewController or scrolls to the top when it's already at the root ViewController.
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         
-        viewControllers = [homeVc, favoritesVc, aboutVc]
+        // The ViewControllers are wrapped in another UINavigationController,
+        // so we need to check if there's only one on the stack and if it conforms
+        // to the TabBarReselectHandler protocol.
+        if tabBarController.selectedViewController == viewController,
+           let navigationController = viewController as? UINavigationController,
+           navigationController.viewControllers.count == 1,
+           let handler = navigationController.viewControllers.first as? TabBarReselectHandler {
+            handler.didReselectTab()
+        }
+        
+        return true
     }
 }

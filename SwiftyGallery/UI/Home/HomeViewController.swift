@@ -222,6 +222,14 @@ extension HomeViewController {
     
 }
 
+//MARK: - TabBarReselectHandler
+extension HomeViewController : TabBarReselectHandler {
+    
+    func didReselectTab() {
+        collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+    }
+}
+
 @available(iOS 17.0, *)
 #Preview(traits: .fixedLayout(width: 215, height: 350)) {
     UINavigationController(rootViewController: HomeViewController())
