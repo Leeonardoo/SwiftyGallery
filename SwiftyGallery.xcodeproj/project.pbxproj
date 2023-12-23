@@ -20,6 +20,8 @@
 		DF3817C82AC6331B00D3153F /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C72AC6331B00D3153F /* NukeUI */; };
 		DF3817CA2AC6331B00D3153F /* NukeVideo in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C92AC6331B00D3153F /* NukeVideo */; };
 		DF607A912B37688000812393 /* TabBarReselectHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF607A902B37688000812393 /* TabBarReselectHandler.swift */; };
+		DF607A932B376D1A00812393 /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF607A922B376D1A00812393 /* PhotoDetailsViewController.swift */; };
+		DF607A952B376D2700812393 /* PhotoDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF607A942B376D2700812393 /* PhotoDetailsViewModel.swift */; };
 		DF69D5AB2B221A8F004A59E4 /* PhotosEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5AA2B221A8F004A59E4 /* PhotosEndpoint.swift */; };
 		DF69D5AD2B221F3D004A59E4 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5AC2B221F3D004A59E4 /* PhotosService.swift */; };
 		DF69D5B02B222019004A59E4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5AF2B222019004A59E4 /* Photo.swift */; };
@@ -73,6 +75,8 @@
 		DF18A48D2A9E461C005064DB /* PulseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseUIView.swift; sourceTree = "<group>"; };
 		DF3817BB2AC4EC3700D3153F /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 		DF607A902B37688000812393 /* TabBarReselectHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarReselectHandler.swift; sourceTree = "<group>"; };
+		DF607A922B376D1A00812393 /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
+		DF607A942B376D2700812393 /* PhotoDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewModel.swift; sourceTree = "<group>"; };
 		DF69D5AA2B221A8F004A59E4 /* PhotosEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosEndpoint.swift; sourceTree = "<group>"; };
 		DF69D5AC2B221F3D004A59E4 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		DF69D5AF2B222019004A59E4 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -153,11 +157,13 @@
 			path = Debug;
 			sourceTree = "<group>";
 		};
-		DF607A8F2B37675F00812393 /* Details */ = {
+		DF607A8F2B37675F00812393 /* PhotoDetails */ = {
 			isa = PBXGroup;
 			children = (
+				DF607A922B376D1A00812393 /* PhotoDetailsViewController.swift */,
+				DF607A942B376D2700812393 /* PhotoDetailsViewModel.swift */,
 			);
-			path = Details;
+			path = PhotoDetails;
 			sourceTree = "<group>";
 		};
 		DF69D5A42B1EC929004A59E4 /* Frameworks */ = {
@@ -232,7 +238,7 @@
 			children = (
 				DFC499512B1ABDAD009F2947 /* CustomViews */,
 				DF18A48C2A9E4613005064DB /* Debug */,
-				DF607A8F2B37675F00812393 /* Details */,
+				DF607A8F2B37675F00812393 /* PhotoDetails */,
 				DFAAFC952A942A470041D986 /* Favorites */,
 				DFAAFC932A942A2C0041D986 /* Home */,
 				DF8FC4002AB7B7A8007AF9A5 /* PhotoCardCell.swift */,
@@ -394,6 +400,7 @@
 				DF69D5B02B222019004A59E4 /* Photo.swift in Sources */,
 				DF18A48E2A9E461C005064DB /* PulseUIView.swift in Sources */,
 				DFC499552B1AC50C009F2947 /* UIWindow+Extensions.swift in Sources */,
+				DF607A952B376D2700812393 /* PhotoDetailsViewModel.swift in Sources */,
 				DFAAFC982A942A7C0041D986 /* HomeViewController.swift in Sources */,
 				DF18A48B2A9E4546005064DB /* Session+Extensions.swift in Sources */,
 				DF69D5B22B22255E004A59E4 /* NothingDecodable.swift in Sources */,
@@ -411,6 +418,7 @@
 				DF69D5BF2B253D6B004A59E4 /* JSONDecoder+Extensions.swift in Sources */,
 				DF8FC4012AB7B7A8007AF9A5 /* PhotoCardCell.swift in Sources */,
 				DFAAFC792A9417830041D986 /* AppDelegate.swift in Sources */,
+				DF607A932B376D1A00812393 /* PhotoDetailsViewController.swift in Sources */,
 				DFAAFC9A2A942A980041D986 /* FavoritesViewController.swift in Sources */,
 				DF7F1EBD2B26515800319980 /* Task+Extensions.swift in Sources */,
 				DFAAFCA22A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift in Sources */,

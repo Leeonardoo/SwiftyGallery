@@ -3,4 +3,85 @@
    uuid = "499D9DBE-5FB8-43AC-AA83-D7FCC3A0C3D2"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E3D5A46-2501-4276-8733-7EC3F33753A3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftyGallery/UI/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "57A1E000-EE7B-40C5-99AD-B5F121260B03"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftyGallery/UI/PhotoCardCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "userLabelView"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "57A1E000-EE7B-40C5-99AD-B5F121260B03 - 7f411d54560d648a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __C.UILabel in variable initialization expression of SwiftyGallery.PhotoCardCell.userLabelView : __C.UILabel"
+                  moduleName = "SwiftyGallery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leeonardoo/XcodeProjects/SwiftyGallery/SwiftyGallery/UI/PhotoCardCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "57A1E000-EE7B-40C5-99AD-B5F121260B03 - 63e12f9d150cc61e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftyGallery.PhotoCardCell.init(frame: __C.CGRect) -&gt; SwiftyGallery.PhotoCardCell"
+                  moduleName = "SwiftyGallery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leeonardoo/XcodeProjects/SwiftyGallery/SwiftyGallery/UI/PhotoCardCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "348">
+               </Location>
+               <Location
+                  uuid = "57A1E000-EE7B-40C5-99AD-B5F121260B03 - 51b1b02a60682a02"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftyGallery.PhotoCardCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;SwiftyGallery.PhotoCardCell&gt;"
+                  moduleName = "SwiftyGallery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leeonardoo/XcodeProjects/SwiftyGallery/SwiftyGallery/UI/PhotoCardCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "336">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

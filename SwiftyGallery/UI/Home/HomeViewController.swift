@@ -10,6 +10,7 @@ import Combine
 
 class HomeViewController: UICollectionViewController {
     
+    private let viewModel = HomeViewModel()
     private var subscriptions: Set<AnyCancellable> = []
     private lazy var dataSource = makeDataSource()
     
@@ -35,8 +36,6 @@ class HomeViewController: UICollectionViewController {
     }()
     
     private lazy var searchController = UISearchController(searchResultsController: nil)
-    
-    private let viewModel = HomeViewModel()
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .large)
@@ -87,7 +86,6 @@ class HomeViewController: UICollectionViewController {
         view.backgroundColor = .systemBackground
         navigationItem.title = "Home".localized
         navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.prefersLargeTitles = true
         collectionView.keyboardDismissMode = .onDrag
         
         setupViews()
@@ -218,6 +216,12 @@ extension HomeViewController {
         if indexPath.row == viewModel.photos.count - 6 {
             viewModel.fetchPhotos()
         }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photo = viewModel.photos[indexPath.row]
+        let viewController = PhotoDetailsViewController(photo: photo)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

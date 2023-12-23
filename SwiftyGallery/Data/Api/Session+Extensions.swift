@@ -19,8 +19,6 @@ extension Session {
         Experimental.URLSessionProxy.shared.isEnabled = true
 #endif
         var configuration = URLSessionConfiguration.af.default
-        configuration.requestCachePolicy = .reloadIgnoringCacheData
-        configuration.urlCache = nil
         return Session(configuration: configuration)
     }()
 }

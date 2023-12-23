@@ -172,9 +172,9 @@ class PhotoCardCell: UICollectionViewCell {
     
     private func configure(with photo: Photo) {
 //        favoriteButton
-        userPhotoImageView.request = ImageRequest(url: URL(string: photo.user.profileImage.small)!, options: .reloadIgnoringCachedData)
+        userPhotoImageView.request = ImageRequest(url: URL(string: photo.user.profileImage.small)!)
         userLabelView.text = photo.user.name
-        imageView.request = ImageRequest(url: URL(string: photo.urls.regular)!, options: .reloadIgnoringCachedData)
+        imageView.request = ImageRequest(url: URL(string: photo.urls.regular)!)
         
         //TODO: Add another ImageView with smaller alpha and blur for an "colored shadow" effect
     }

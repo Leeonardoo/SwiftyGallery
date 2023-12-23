@@ -31,7 +31,7 @@ enum PhotosEndpoint: Endpoint {
     var query: Parameters? {
         switch self {
             case .photoList(let page, let perPage):
-                var params: [String: Any] = [
+                let params: [String: Any] = [
                     "page": page,
                     "per_page": perPage
                 ]
@@ -39,7 +39,7 @@ enum PhotosEndpoint: Endpoint {
                 return params
                 
             case .photoSearch(let page, let perPage, let query):
-                var params: [String: Any] = [
+                let params: [String: Any] = [
                     "page": page,
                     "per_page": perPage,
                     "query": query
