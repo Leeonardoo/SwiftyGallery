@@ -41,7 +41,7 @@ class PhotoCardCell: UICollectionViewCell {
         return view
     }()
     
-    private let userPhotoImageView: LazyImageView = {
+    private let userImageView: LazyImageView = {
         let view = LazyImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.imageView.contentMode = .scaleAspectFill
@@ -112,7 +112,7 @@ class PhotoCardCell: UICollectionViewCell {
         
         contentView.addSubview(bottomBlurView)
         bottomBlurView.contentView.addSubview(bottomContentView)
-        bottomContentView.addSubview(userPhotoImageView)
+        bottomContentView.addSubview(userImageView)
         bottomContentView.addSubview(userLabelView)
         
         contentView.addSubview(buttonBlurView)
@@ -137,7 +137,7 @@ class PhotoCardCell: UICollectionViewCell {
             make.bottom.equalToSuperview()
         }
         
-        userPhotoImageView.snp.makeConstraints { make in
+        userImageView.snp.makeConstraints { make in
             make.top.greaterThanOrEqualToSuperview().inset(6)
             make.bottom.lessThanOrEqualToSuperview().inset(5)
             make.leading.equalToSuperview().inset(6)
@@ -147,9 +147,9 @@ class PhotoCardCell: UICollectionViewCell {
         userLabelView.snp.makeConstraints { make in
             make.top.greaterThanOrEqualToSuperview()
             make.bottom.lessThanOrEqualToSuperview()
-            make.centerY.equalTo(userPhotoImageView.snp.centerY)
+            make.centerY.equalTo(userImageView.snp.centerY)
             make.trailing.equalToSuperview()
-            make.leading.equalTo(userPhotoImageView.snp.trailing).inset(-6)
+            make.leading.equalTo(userImageView.snp.trailing).inset(-6)
         }
         
         favoriteContentView.snp.makeConstraints { make in
@@ -172,9 +172,10 @@ class PhotoCardCell: UICollectionViewCell {
     
     private func configure(with photo: Photo) {
 //        favoriteButton
-        userPhotoImageView.request = ImageRequest(url: URL(string: photo.user.profileImage.small)!)
-        userLabelView.text = photo.user.name
         imageView.request = ImageRequest(url: URL(string: photo.urls.regular)!)
+        
+        userImageView.request = ImageRequest(url: URL(string: photo.user.profileImage.small)!)
+        userLabelView.text = photo.user.name
         
         //TODO: Add another ImageView with smaller alpha and blur for an "colored shadow" effect
     }

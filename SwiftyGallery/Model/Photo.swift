@@ -31,6 +31,7 @@ struct Photo: Decodable, Hashable {
     let premium: Bool
     let plus: Bool
     let user: User
+    let sponsorship: Sponsorship?
 }
 
 struct PhotoUrls: Decodable, Hashable {
@@ -95,6 +96,11 @@ struct UserSocial: Decodable, Hashable {
     let portfolioUrl: String?
     let twitterUsername: String?
     let paypalEmail: String?
+}
+
+struct Sponsorship: Decodable, Hashable {
+    let tagline: String
+    let taglineUrl: String
 }
 
 #if DEBUG
@@ -163,6 +169,10 @@ let demoPhoto = Photo(
             twitterUsername: "test",
             paypalEmail: "test@example.com"
         )
+    ),
+    sponsorship: Sponsorship(
+        tagline: "Made to you",
+        taglineUrl: "https://www.github.com/Leeonardoo"
     )
 )
 #endif

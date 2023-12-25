@@ -147,15 +147,15 @@ class HomeViewController: UICollectionViewController {
     }
     
     private func setupSearchController() {
-        self.searchController.searchResultsUpdater = self
-        self.searchController.obscuresBackgroundDuringPresentation = false
-        self.searchController.automaticallyShowsSearchResultsController = true
-        self.searchController.hidesNavigationBarDuringPresentation = true
-        self.searchController.searchBar.placeholder = "Search".localized
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.automaticallyShowsSearchResultsController = true
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.searchBar.placeholder = "Search".localized
         
-        self.navigationItem.searchController = searchController
-        self.definesPresentationContext = true
-        self.navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func setupConstraints() {
