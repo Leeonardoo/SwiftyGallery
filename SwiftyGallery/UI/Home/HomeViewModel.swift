@@ -79,15 +79,15 @@ class HomeViewModel {
         errorSubject.send(nil)
         Task {
             let result = if currentQuery.isEmpty {
-                await service.fetchPhotos(page: currentPage, perPage: 20)
+                await service.fetchPhotos(page: currentPage, perPage: 26)
             } else {
-                await service.searchPhotos(page: currentPage, perPage: 20, query: currentQuery)
+                await service.searchPhotos(page: currentPage, perPage: 26, query: currentQuery)
             }
             
             switch result {
                 case .success(let photos):
                     self.currentPage += 1
-                    self.endReached = photos.isEmpty || photos.count < 20
+                    self.endReached = photos.isEmpty || photos.count < 26
                     self.photosSubject.send(self.photos + photos)
                 case .failure(let error):
                     self.errorSubject.send(error)

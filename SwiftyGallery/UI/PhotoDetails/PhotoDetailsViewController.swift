@@ -127,7 +127,7 @@ class PhotoDetailsViewController: UIViewController {
     }
 
     private func configure(with photo: Photo) {
-        imageView.request = ImageRequest(url: URL(string: photo.urls.regular)!)
+        imageView.request = ImageRequest(url: URL(string: photo.urls.full)!)
         
         userImageView.request = ImageRequest(url: URL(string: photo.user.profileImage.large)!)
         

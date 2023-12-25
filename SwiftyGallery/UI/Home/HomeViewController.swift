@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Nuke
 
 class HomeViewController: UICollectionViewController {
     
@@ -36,6 +37,7 @@ class HomeViewController: UICollectionViewController {
     }()
     
     private lazy var searchController = UISearchController(searchResultsController: nil)
+    private let prefetcher = ImagePrefetcher(destination: .diskCache)
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .large)
@@ -87,6 +89,8 @@ class HomeViewController: UICollectionViewController {
         navigationItem.title = "Home".localized
         navigationItem.largeTitleDisplayMode = .always
         collectionView.keyboardDismissMode = .onDrag
+        collectionView.isPrefetchingEnabled = true
+        collectionView.prefetchDataSource = self
         
         setupViews()
         setupConstraints()
@@ -94,6 +98,14 @@ class HomeViewController: UICollectionViewController {
         setupSearchController()
         applySnapshot()
         setupObservers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        prefetcher.priority = .normal
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        prefetcher.priority = .veryLow
     }
     
     private func setupObservers() {
@@ -213,9 +225,23 @@ extension HomeViewController {
 extension HomeViewController {
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.photos.count - 6 {
+        let photo = viewModel.photos[indexPath.row]
+        let urls = [URL(string: photo.user.profileImage.large),
+                    URL(string: photo.urls.full)].compactMap { $0 }
+        
+        prefetcher.startPrefetching(with: urls)
+        
+        if indexPath.row == viewModel.photos.count - 8 {
             viewModel.fetchPhotos()
         }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let photo = viewModel.photos[indexPath.row]
+        let urls = [URL(string: photo.user.profileImage.large),
+                    URL(string: photo.urls.full)].compactMap { $0 }
+        
+        prefetcher.stopPrefetching(with: urls)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -231,6 +257,33 @@ extension HomeViewController : TabBarReselectHandler {
     
     func didReselectTab() {
         collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+    }
+}
+
+//MARK: - PrefetchDataSource
+extension HomeViewController : UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        let photos = indexPaths.map { viewModel.photos[$0.row] }
+        let urls = photos.flatMap { photo in
+            [URL(string: photo.user.profileImage.small),
+             URL(string: photo.user.profileImage.large),
+             URL(string: photo.urls.regular),
+             URL(string: photo.urls.full)]
+        }.compactMap { $0 }
+        
+        prefetcher.startPrefetching(with: urls)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        let photos = indexPaths.map { viewModel.photos[$0.row] }
+        let urls = photos.flatMap { photo in
+            [URL(string: photo.user.profileImage.small),
+             URL(string: photo.user.profileImage.large),
+             URL(string: photo.urls.regular),
+             URL(string: photo.urls.full)]
+        }.compactMap { $0 }
+        
+        prefetcher.stopPrefetching(with: urls)
     }
 }
 
