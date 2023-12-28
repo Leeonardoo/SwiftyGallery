@@ -11,7 +11,18 @@ import SwiftUI
 import SnapKit
 import NukeUI
 import Nuke
+import SafariServices
 
+//Views
+//Downloads
+//Date
+//Camera
+//Location
+
+//Favorite button (somewhere)
+//Download button and select size (menu)
+
+//Zoom image in another screen
 class PhotoDetailsViewController: UIViewController {
     
     private let viewModel: PhotoDetailsViewModel
@@ -122,9 +133,26 @@ class PhotoDetailsViewController: UIViewController {
         navigationItem.title = "Details".localized
         navigationItem.largeTitleDisplayMode = .never
         
+        setupNavigationBar()
         setupViews()
         setupConstraints()
         setupObservers()
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(
+                image: UIImage(systemName: "square.and.arrow.up"),
+                primaryAction: UIAction(handler: { [weak self] action in
+                    guard let self = self,
+                          let url = URL(string: viewModel.photo.links.html) else { return }
+                    
+                    let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                    activityViewController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItems?.first
+                    self.present(activityViewController, animated: true)
+                })
+            )
+        ]
     }
     
     private func setupObservers() {
@@ -169,6 +197,14 @@ class PhotoDetailsViewController: UIViewController {
             userSubtitleIconView.tintColor = .tintColor
         } else if let sponsorship = photo.sponsorship {
             userSubtitleLabelView.text = sponsorship.tagline
+            
+            let tapGestureRecognizer = UITapGestureRecognizer(
+                target: self,
+                action: #selector(didTapSponsorshipTagline)
+            )
+            userSubtitleLabelView.addGestureRecognizer(tapGestureRecognizer)
+            userSubtitleLabelView.isUserInteractionEnabled = true
+            
             userSubtitleIconView.image = UIImage(systemName: "arrow.up.forward",
                                                  withConfiguration: UIImage.SymbolConfiguration(pointSize: userSubtitleLabelView.font.pointSize))
             
@@ -177,7 +213,7 @@ class PhotoDetailsViewController: UIViewController {
             userSubtitleLabelView.text = photo.user.username
         }
         
-        descriptionLabelView.text = "3D render of MX MECHANICAL MINI keyboard Logitech"//photo.description
+        descriptionLabelView.text = photo.description
     }
     
     private func setupViews() {
@@ -224,6 +260,14 @@ class PhotoDetailsViewController: UIViewController {
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(12)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(12)
         }
+    }
+    
+    @objc private func didTapSponsorshipTagline() {
+        guard let sponsorship = viewModel.photo.sponsorship,
+              let url = URL(string: sponsorship.taglineUrl) else { return }
+        
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true)
     }
 }
 
