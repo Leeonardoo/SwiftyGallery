@@ -80,7 +80,7 @@ class PhotoDetailsViewController: UIViewController {
     
     private let userSubtitleLabelView: UILabel = {
         let view = UILabel()
-        view.font = .preferredFont(forTextStyle: .footnote, weight: .medium)
+        view.font = .preferredFont(forTextStyle: .footnote)
         view.adjustsFontForContentSizeCategory = true
         view.textColor = .secondaryLabel
         
@@ -91,6 +91,17 @@ class PhotoDetailsViewController: UIViewController {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFit
+        
+        return view
+    }()
+    
+    private let descriptionLabelView: UILabel = {
+        let view = UILabel()
+        view.numberOfLines = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.font = .preferredFont(forTextStyle: .body)
+        view.adjustsFontForContentSizeCategory = true
+        view.textColor = .label
         
         return view
     }()
@@ -125,7 +136,7 @@ class PhotoDetailsViewController: UIViewController {
             }
             .store(in: &subscriptions)
     }
-
+    
     private func configure(with photo: Photo) {
         imageView.request = ImageRequest(url: URL(string: photo.urls.full)!)
         
@@ -138,21 +149,35 @@ class PhotoDetailsViewController: UIViewController {
         
         if photo.plus {
             let attributedString = NSMutableAttributedString()
-            attributedString.append(NSAttributedString(string: "In collaboration with".localized + " "))
-            attributedString.append(NSAttributedString(string: photo.user.name, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue, .underlineColor: UIColor.tintColor, .foregroundColor: UIColor.tintColor]))
+            attributedString.append(
+                NSAttributedString(string: "In collaboration with".localized + " ")
+            )
+            attributedString.append(
+                NSAttributedString(string: photo.user.name,
+                                   attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue,
+                                                .underlineColor: UIColor.tintColor,
+                                                .foregroundColor: UIColor.tintColor])
+            )
             
             userSubtitleLabelView.attributedText = attributedString
         } else if photo.user.forHire {
             userSubtitleLabelView.text = "Available for hire".localized
-            userSubtitleIconView.image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: UIFont.preferredFont(forTextStyle: .footnote).pointSize))
-            userSubtitleIconView.tintColor = UIColor.tintColor
+            userSubtitleIconView.image = UIImage(systemName: "checkmark.circle.fill",
+                                                 withConfiguration: UIImage.SymbolConfiguration(pointSize: userSubtitleLabelView.font.pointSize)
+            )
+            
+            userSubtitleIconView.tintColor = .tintColor
         } else if let sponsorship = photo.sponsorship {
             userSubtitleLabelView.text = sponsorship.tagline
-            userSubtitleIconView.image = UIImage(systemName: "arrow.up.forward", withConfiguration: UIImage.SymbolConfiguration(pointSize: UIFont.preferredFont(forTextStyle: .footnote).pointSize))
+            userSubtitleIconView.image = UIImage(systemName: "arrow.up.forward",
+                                                 withConfiguration: UIImage.SymbolConfiguration(pointSize: userSubtitleLabelView.font.pointSize))
+            
             userSubtitleIconView.tintColor = .secondaryLabel
         } else {
             userSubtitleLabelView.text = photo.user.username
         }
+        
+        descriptionLabelView.text = "3D render of MX MECHANICAL MINI keyboard Logitech"//photo.description
     }
     
     private func setupViews() {
@@ -160,6 +185,7 @@ class PhotoDetailsViewController: UIViewController {
         scrollView.addSubview(imageView)
         scrollView.addSubview(userImageView)
         scrollView.addSubview(userDetailsContainer)
+        scrollView.addSubview(descriptionLabelView)
     }
     
     private func setupConstraints() {
@@ -192,6 +218,12 @@ class PhotoDetailsViewController: UIViewController {
         
         userSubtitleIconView.setContentHuggingPriority(.required, for: .horizontal)
         userSubtitleIconView.setContentCompressionResistancePriority(.required, for: .horizontal)
+        
+        descriptionLabelView.snp.makeConstraints { make in
+            make.top.equalTo(userImageView.snp.bottom).offset(12)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(12)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(12)
+        }
     }
 }
 
