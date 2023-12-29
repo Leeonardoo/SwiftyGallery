@@ -42,6 +42,7 @@ class PhotoDetailsViewController: UIViewController {
         view.imageView.contentMode = .scaleAspectFill
         view.placeholderView = nil
         view.clipsToBounds = true
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -167,6 +168,8 @@ class PhotoDetailsViewController: UIViewController {
     
     private func configure(with photo: Photo) {
         imageView.request = ImageRequest(url: URL(string: photo.urls.full)!)
+        let imageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
+        imageView.addGestureRecognizer(imageTapGestureRecognizer)
         
         userImageView.request = ImageRequest(url: URL(string: photo.user.profileImage.large)!)
         
@@ -268,6 +271,13 @@ class PhotoDetailsViewController: UIViewController {
         
         let safariViewController = SFSafariViewController(url: url)
         present(safariViewController, animated: true)
+    }
+    
+    @objc private func didTapImage() {
+        guard let url = URL(string: viewModel.photo.urls.full) else { return }
+        
+        let vc = ImagePreviewViewController(imageURL: url)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
