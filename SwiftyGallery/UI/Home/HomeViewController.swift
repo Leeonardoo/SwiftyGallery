@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import Nuke
+import OSLog
 
 class HomeViewController: UICollectionViewController {
     
@@ -101,11 +102,31 @@ class HomeViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = traitCollection.verticalSizeClass == .compact
+        
+        if traitCollection.verticalSizeClass != .compact {
+            navigationController?.isNavigationBarHidden = false
+        }
+        
         prefetcher.priority = .normal
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.isNavigationBarHidden = false
         prefetcher.priority = .veryLow
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        Logger.viewController.info("verticalSizeClass compact: \(self.traitCollection.verticalSizeClass == .compact)")
+        navigationController?.hidesBarsOnSwipe = traitCollection.verticalSizeClass == .compact
+        
+        if traitCollection.verticalSizeClass != .compact {
+            navigationController?.isNavigationBarHidden = false
+        }
     }
     
     private func setupObservers() {

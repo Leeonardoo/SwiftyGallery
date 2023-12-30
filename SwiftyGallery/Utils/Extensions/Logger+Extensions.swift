@@ -13,4 +13,6 @@ extension Logger {
     
     /// All logs related to network activity
     //static let network = Logger(subsystem: subsystem, category: "network")
+    
+    static let viewController = Logger(subsystem: subsystem, category: "viewController")
 }
