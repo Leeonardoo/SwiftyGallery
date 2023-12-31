@@ -88,7 +88,8 @@ class HomeViewModel {
                 case .success(let photos):
                     self.currentPage += 1
                     self.endReached = photos.isEmpty || photos.count < 26
-                    self.photosSubject.send(self.photos + photos)
+                    let items = (self.photos + photos).unique(by: \.id)
+                    self.photosSubject.send(items)
                 case .failure(let error):
                     self.errorSubject.send(error)
             }

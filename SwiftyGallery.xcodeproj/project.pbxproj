@@ -54,6 +54,7 @@
 		DFC499572B1AC524009F2947 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC499562B1AC524009F2947 /* UIScreen+Extensions.swift */; };
 		DFCC2EB42B3DF24500332CF1 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCC2EB32B3DF24500332CF1 /* ZoomableImageView.swift */; };
 		DFCC2EB72B3DF4D600332CF1 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCC2EB62B3DF4D600332CF1 /* ImagePreviewViewController.swift */; };
+		DFCD20D92B41FE540096B523 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCD20D82B41FE540096B523 /* Array+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -109,6 +110,7 @@
 		DFC499562B1AC524009F2947 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		DFCC2EB32B3DF24500332CF1 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
 		DFCC2EB62B3DF4D600332CF1 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
+		DFCD20D82B41FE540096B523 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 				DFAAFCA12A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift */,
 				DF7F1EB82B26472800319980 /* UIColor+Extensions.swift */,
 				DF7F1EBC2B26515800319980 /* Task+Extensions.swift */,
+				DFCD20D82B41FE540096B523 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				DF7F1EBB2B264B3A00319980 /* HomeViewModel.swift in Sources */,
 				DFAAFCA02A942BAE0041D986 /* String+Extensions.swift in Sources */,
 				DF69D5AB2B221A8F004A59E4 /* PhotosEndpoint.swift in Sources */,
+				DFCD20D92B41FE540096B523 /* Array+Extensions.swift in Sources */,
 				DF69D5BF2B253D6B004A59E4 /* JSONDecoder+Extensions.swift in Sources */,
 				DF8FC4012AB7B7A8007AF9A5 /* PhotoCardCell.swift in Sources */,
 				DFAAFC792A9417830041D986 /* AppDelegate.swift in Sources */,
