@@ -13,6 +13,15 @@ struct PhotosResult: Decodable {
 }
 
 // Tags?
+//"exif": {
+//    "make": "OLYMPUS CORPORATION",
+//    "model": "E-M1MarkII",
+//    "name": "OLYMPUS CORPORATION, E-M1MarkII",
+//    "exposure_time": "1/50",
+//    "aperture": "2.8",
+//    "focal_length": "115.0",
+//    "iso": 3200
+//},
 struct Photo: Decodable, Hashable {
     let id: String
     let slug: String

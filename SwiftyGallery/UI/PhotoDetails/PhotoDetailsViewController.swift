@@ -12,12 +12,7 @@ import SnapKit
 import NukeUI
 import Nuke
 import SafariServices
-
-//Views
-//Downloads
-//Date
-//Camera
-//Location
+import MapKit
 
 //Favorite button (somewhere)
 //Download button and select size (menu)
@@ -64,6 +59,39 @@ class PhotoDetailsViewController: UIViewController {
         view.axis = .vertical
         view.alignment = .leading
         view.spacing = 2
+        
+        return view
+    }()
+    
+    private let viewsDetail = SingleLineDetailView(
+        icon: UIImage(systemName: "chart.bar.xaxis"),
+        title: "views".localized.capitalized
+    )
+    
+    private let downloadsDetail = SingleLineDetailView(
+        icon: UIImage(systemName: "square.and.arrow.down.fill"),
+        title: "downloads".localized.capitalized
+    )
+    
+    private let dateDetail = SingleLineDetailView(
+        icon: UIImage(systemName: "calendar"),
+        title: "published".localized.capitalized
+    )
+    
+    private let cameraDetail = SingleLineDetailView(
+        icon: UIImage(systemName: "camera.fill"),
+        title: "camera".localized.capitalized
+    )
+    
+    private lazy var detailsContainer: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .secondarySystemFill
+        view.isLayoutMarginsRelativeArrangement = true
+        view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
+        view.layer.cornerRadius = 8
+        view.spacing = 8
         
         return view
     }()
@@ -117,6 +145,45 @@ class PhotoDetailsViewController: UIViewController {
         
         return view
     }()
+    
+    private let mapView: MKMapView = {
+        let view = MKMapView()
+        return view
+    }()
+    
+    private let locationButton: UIButton = {
+        let view = UIButton()
+        
+        var configuration = UIButton.Configuration.gray()
+        configuration.cornerStyle = .fixed
+        configuration.titleAlignment = .trailing
+        
+        var iconConfiguration = UIImage.SymbolConfiguration(pointSize: 14)
+        configuration.image = UIImage(systemName: "chevron.right", withConfiguration: iconConfiguration)
+        configuration.imagePadding = 8
+        configuration.imagePlacement = .trailing
+        
+        var backgroundConfiguration = configuration.background
+        backgroundConfiguration.cornerRadius = 0
+        configuration.background = backgroundConfiguration
+        
+        view.configuration = configuration
+        view.contentHorizontalAlignment = .leading
+        
+        return view
+    }()
+    
+    private lazy var mapContainer: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [mapView, locationButton])
+        view.axis = .vertical
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 8
+        view.layer.masksToBounds = true
+        
+        return view
+    }()
+    
+    private var mapHeightConstraint: NSLayoutConstraint?
     
     init(photo: Photo) {
         self.viewModel = PhotoDetailsViewModel(photo: photo)
@@ -217,6 +284,39 @@ class PhotoDetailsViewController: UIViewController {
         }
         
         descriptionLabelView.text = photo.description
+        
+        //MARK: - Details
+        detailsContainer.clearArrangedSubviews()
+        
+        viewsDetail.detail = 12345.formatted()
+        detailsContainer.addArrangedSubview(viewsDetail)
+        
+        downloadsDetail.detail = 4432.formatted()
+        detailsContainer.addArrangedSubview(downloadsDetail)
+        
+        dateDetail.detail = photo.createdAt.formatted()
+        detailsContainer.addArrangedSubview(dateDetail)
+        
+        cameraDetail.detail = "DJI, FC3582"
+        detailsContainer.addArrangedSubview(cameraDetail)
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let coords = CLLocationCoordinate2D(latitude: 37.334648, longitude: -122.0115469)
+        mapView.setRegion(MKCoordinateRegion(center: coords, span: span), animated: true)
+        mapView.addAnnotation(LandmarkAnnotation(title: nil, subtitle: nil, coordinate: coords))
+        locationButton.configuration?.title = "Apple Park"
+        detailsContainer.addArrangedSubview(mapContainer)
+        
+        var addedSeparators = 0
+        for index in detailsContainer.arrangedSubviews.dropLast().indices {
+            let separator = UIView()
+            separator.backgroundColor = .separator
+            separator.heightAnchor.constraint(equalToConstant: 1 / UIScreen.main.scale).isActive = true
+            detailsContainer.addArrangedSubview(separator)
+            detailsContainer.insertArrangedSubview(separator, at: index + 1 + addedSeparators)
+            addedSeparators += 1
+            print(index)
+        }
     }
     
     private func setupViews() {
@@ -225,9 +325,16 @@ class PhotoDetailsViewController: UIViewController {
         scrollView.addSubview(userImageView)
         scrollView.addSubview(userDetailsContainer)
         scrollView.addSubview(descriptionLabelView)
+        scrollView.addSubview(detailsContainer)
+        
+        locationButton.addAction(UIAction(handler: { action in
+            
+        }), for: .touchUpInside)
     }
     
     private func setupConstraints() {
+        mapView.heightAnchor.constraint(equalToConstant: 180).isActive = true
+        
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -262,6 +369,13 @@ class PhotoDetailsViewController: UIViewController {
             make.top.equalTo(userImageView.snp.bottom).offset(12)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(12)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(12)
+        }
+        
+        detailsContainer.snp.makeConstraints { make in
+            make.top.equalTo(descriptionLabelView.snp.bottom).offset(12)
+            make.width.equalTo(view.safeAreaLayoutGuide).inset(12)
+            make.centerX.equalToSuperview()
+            make.bottom.lessThanOrEqualToSuperview().inset(24)
         }
     }
     

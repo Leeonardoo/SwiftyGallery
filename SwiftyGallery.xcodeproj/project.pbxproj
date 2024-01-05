@@ -19,6 +19,7 @@
 		DF3817C62AC6331B00D3153F /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C52AC6331B00D3153F /* NukeExtensions */; };
 		DF3817C82AC6331B00D3153F /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C72AC6331B00D3153F /* NukeUI */; };
 		DF3817CA2AC6331B00D3153F /* NukeVideo in Frameworks */ = {isa = PBXBuildFile; productRef = DF3817C92AC6331B00D3153F /* NukeVideo */; };
+		DF56F00C2B42301B00F48BEF /* LandmarkAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF56F00B2B42301B00F48BEF /* LandmarkAnnotation.swift */; };
 		DF607A912B37688000812393 /* TabBarReselectHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF607A902B37688000812393 /* TabBarReselectHandler.swift */; };
 		DF607A932B376D1A00812393 /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF607A922B376D1A00812393 /* PhotoDetailsViewController.swift */; };
 		DF607A952B376D2700812393 /* PhotoDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF607A942B376D2700812393 /* PhotoDetailsViewModel.swift */; };
@@ -55,6 +56,8 @@
 		DFCC2EB42B3DF24500332CF1 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCC2EB32B3DF24500332CF1 /* ZoomableImageView.swift */; };
 		DFCC2EB72B3DF4D600332CF1 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCC2EB62B3DF4D600332CF1 /* ImagePreviewViewController.swift */; };
 		DFCD20D92B41FE540096B523 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCD20D82B41FE540096B523 /* Array+Extensions.swift */; };
+		DFCD20DB2B420DF80096B523 /* SingleLineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCD20DA2B420DF80096B523 /* SingleLineDetailView.swift */; };
+		DFCD20DD2B421A720096B523 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCD20DC2B421A720096B523 /* UIStackView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,6 +80,7 @@
 		DF18A48A2A9E4546005064DB /* Session+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Extensions.swift"; sourceTree = "<group>"; };
 		DF18A48D2A9E461C005064DB /* PulseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseUIView.swift; sourceTree = "<group>"; };
 		DF3817BB2AC4EC3700D3153F /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
+		DF56F00B2B42301B00F48BEF /* LandmarkAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkAnnotation.swift; sourceTree = "<group>"; };
 		DF607A902B37688000812393 /* TabBarReselectHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarReselectHandler.swift; sourceTree = "<group>"; };
 		DF607A922B376D1A00812393 /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
 		DF607A942B376D2700812393 /* PhotoDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 		DFCC2EB32B3DF24500332CF1 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
 		DFCC2EB62B3DF4D600332CF1 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
 		DFCD20D82B41FE540096B523 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		DFCD20DA2B420DF80096B523 /* SingleLineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineDetailView.swift; sourceTree = "<group>"; };
+		DFCD20DC2B421A720096B523 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +174,7 @@
 			children = (
 				DF607A922B376D1A00812393 /* PhotoDetailsViewController.swift */,
 				DF607A942B376D2700812393 /* PhotoDetailsViewModel.swift */,
+				DF56F00B2B42301B00F48BEF /* LandmarkAnnotation.swift */,
 			);
 			path = PhotoDetails;
 			sourceTree = "<group>";
@@ -303,6 +310,7 @@
 				DF7F1EB82B26472800319980 /* UIColor+Extensions.swift */,
 				DF7F1EBC2B26515800319980 /* Task+Extensions.swift */,
 				DFCD20D82B41FE540096B523 /* Array+Extensions.swift */,
+				DFCD20DC2B421A720096B523 /* UIStackView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -312,6 +320,7 @@
 			children = (
 				DFC499522B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift */,
 				DFCC2EB32B3DF24500332CF1 /* ZoomableImageView.swift */,
+				DFCD20DA2B420DF80096B523 /* SingleLineDetailView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -435,9 +444,12 @@
 				DF69D5AB2B221A8F004A59E4 /* PhotosEndpoint.swift in Sources */,
 				DFCD20D92B41FE540096B523 /* Array+Extensions.swift in Sources */,
 				DF69D5BF2B253D6B004A59E4 /* JSONDecoder+Extensions.swift in Sources */,
+				DFCD20DD2B421A720096B523 /* UIStackView+Extensions.swift in Sources */,
 				DF8FC4012AB7B7A8007AF9A5 /* PhotoCardCell.swift in Sources */,
+				DF56F00C2B42301B00F48BEF /* LandmarkAnnotation.swift in Sources */,
 				DFAAFC792A9417830041D986 /* AppDelegate.swift in Sources */,
 				DF607A932B376D1A00812393 /* PhotoDetailsViewController.swift in Sources */,
+				DFCD20DB2B420DF80096B523 /* SingleLineDetailView.swift in Sources */,
 				DFAAFC9A2A942A980041D986 /* FavoritesViewController.swift in Sources */,
 				DF7F1EBD2B26515800319980 /* Task+Extensions.swift in Sources */,
 				DFAAFCA22A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift in Sources */,
