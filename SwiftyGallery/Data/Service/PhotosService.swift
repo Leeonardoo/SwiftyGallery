@@ -52,4 +52,25 @@ struct PhotosService {
                 return .failure(failure.asNetworkError(with: NothingDecodable.self, data: response.data))
         }
     }
+    
+    func fetchDetails(for slug: String, refresh: Bool = false) async -> Result<Photo, NetworkError<NothingDecodable>> {
+        let url = PhotosEndpoint.photoDetails(slug: slug)
+        
+        if refresh {
+            try? URLCache.shared.removeCachedResponse(for: url.asURLRequest())
+        }
+        
+        let dataTask = Session.app.request(url)
+            .validate()
+            .serializingDecodable(Photo.self, automaticallyCancelling: true, decoder: JSONDecoder.defaultDecoder)
+        
+        let response = await dataTask.response
+        
+        switch response.result {
+            case .success(let success):
+                return .success(success)
+            case .failure(let failure):
+                return .failure(failure.asNetworkError(with: NothingDecodable.self, data: response.data))
+        }
+    }
 }

@@ -12,10 +12,11 @@ enum PhotosEndpoint: Endpoint {
     
     case photoList(page: Int, perPage: Int)
     case photoSearch(page: Int, perPage: Int, query: String)
+    case photoDetails(slug: String)
     
     var method: HTTPMethod {
         switch self {
-            case .photoList(_, _), .photoSearch(_, _, _): .get
+            case .photoList(_, _), .photoSearch(_, _, _), .photoDetails(_): .get
         }
     }
     
@@ -25,6 +26,8 @@ enum PhotosEndpoint: Endpoint {
                 return "photos"
             case .photoSearch(_, _, _):
                 return "search/photos"
+            case .photoDetails(let slug):
+                return "photos/\(slug)"
         }
     }
     
@@ -49,6 +52,8 @@ enum PhotosEndpoint: Endpoint {
                 
                 return params
                 
+            default:
+                return nil
         }
     }
 }

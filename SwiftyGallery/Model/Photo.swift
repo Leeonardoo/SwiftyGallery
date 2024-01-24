@@ -41,6 +41,10 @@ struct Photo: Decodable, Hashable {
     let plus: Bool
     let user: User
     let sponsorship: Sponsorship?
+    let views: Int?
+    let downloads: Int?
+    let exif: Exif?
+    let location: PhotoLocation?
 }
 
 struct PhotoUrls: Decodable, Hashable {
@@ -110,6 +114,28 @@ struct UserSocial: Decodable, Hashable {
 struct Sponsorship: Decodable, Hashable {
     let tagline: String
     let taglineUrl: String
+}
+
+struct Exif: Decodable, Hashable {
+    let aperture: String?
+    let exposureTime: String?
+    let focalLength: String?
+    let iso: Int?
+    let make: String?
+    let model: String?
+    let name: String?
+}
+
+struct PhotoLocation: Decodable, Hashable {
+    let city: String?
+    let country: String?
+    let name: String?
+    let position: LocationPosition?
+}
+
+struct LocationPosition: Decodable, Hashable {
+    let latitude: Double?
+    let longitude: Double?
 }
 
 #if DEBUG
@@ -182,6 +208,10 @@ let demoPhoto = Photo(
     sponsorship: Sponsorship(
         tagline: "Made to you",
         taglineUrl: "https://www.github.com/Leeonardoo"
-    )
+    ),
+    views: nil,
+    downloads: nil,
+    exif: nil,
+    location: nil
 )
 #endif

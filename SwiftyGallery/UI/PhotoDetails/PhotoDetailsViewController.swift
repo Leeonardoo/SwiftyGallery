@@ -23,10 +23,13 @@ class PhotoDetailsViewController: UIViewController {
     private let viewModel: PhotoDetailsViewModel
     private var subscriptions: Set<AnyCancellable> = []
     
-    private let scrollView: UIScrollView = {
+    private let refreshControl = UIRefreshControl()
+    
+    private lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.alwaysBounceVertical = true
+        view.refreshControl = refreshControl
         
         return view
     }()
@@ -231,14 +234,28 @@ class PhotoDetailsViewController: UIViewController {
                 configure(with: photo)
             }
             .store(in: &subscriptions)
+        
+        viewModel.isLoadingPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoading in
+                guard let self = self else { return }
+                
+                if isLoading {
+                    refreshControl.beginRefreshing()
+                } else {
+                    refreshControl.endRefreshing()
+                }
+            }.store(in: &subscriptions)
     }
     
     private func configure(with photo: Photo) {
-        imageView.request = ImageRequest(url: URL(string: photo.urls.full)!)
-        let imageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
-        imageView.addGestureRecognizer(imageTapGestureRecognizer)
+        if imageView.request == nil {
+            imageView.request = ImageRequest(url: URL(string: photo.urls.full)!)
+        }
         
-        userImageView.request = ImageRequest(url: URL(string: photo.user.profileImage.large)!)
+        if userImageView.request == nil {
+            userImageView.request = ImageRequest(url: URL(string: photo.user.profileImage.large)!)
+        }
         
         userSubtitleIconView.isHidden = !photo.user.forHire && photo.sponsorship?.tagline == nil
         
@@ -288,24 +305,36 @@ class PhotoDetailsViewController: UIViewController {
         //MARK: - Details
         detailsContainer.clearArrangedSubviews()
         
-        viewsDetail.detail = 12345.formatted()
-        detailsContainer.addArrangedSubview(viewsDetail)
+        if let views = photo.views, views > 0 {
+            viewsDetail.detail = views.formatted()
+            detailsContainer.addArrangedSubview(viewsDetail)
+        }
         
-        downloadsDetail.detail = 4432.formatted()
-        detailsContainer.addArrangedSubview(downloadsDetail)
+        if let downloads = photo.downloads, downloads > 0 {
+            downloadsDetail.detail = downloads.formatted()
+            detailsContainer.addArrangedSubview(downloadsDetail)
+        }
         
         dateDetail.detail = photo.createdAt.formatted()
         detailsContainer.addArrangedSubview(dateDetail)
         
-        cameraDetail.detail = "DJI, FC3582"
-        detailsContainer.addArrangedSubview(cameraDetail)
+        if let cameraName = photo.exif?.name {
+            cameraDetail.detail = cameraName
+            detailsContainer.addArrangedSubview(cameraDetail)
+        }
         
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        let coords = CLLocationCoordinate2D(latitude: 37.334648, longitude: -122.0115469)
-        mapView.setRegion(MKCoordinateRegion(center: coords, span: span), animated: true)
-        mapView.addAnnotation(LandmarkAnnotation(title: nil, subtitle: nil, coordinate: coords))
-        locationButton.configuration?.title = "Apple Park"
-        detailsContainer.addArrangedSubview(mapContainer)
+        if let locationName = photo.location?.name,
+           let latitude = photo.location?.position?.latitude,
+           let longitude = photo.location?.position?.longitude,
+           latitude != 0 && longitude != 0 {
+            
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            let coords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            mapView.setRegion(MKCoordinateRegion(center: coords, span: span), animated: true)
+            mapView.addAnnotation(LandmarkAnnotation(title: photo.location?.name, subtitle: nil, coordinate: coords))
+            locationButton.configuration?.title = locationName
+            detailsContainer.addArrangedSubview(mapContainer)
+        }
         
         var addedSeparators = 0
         for index in detailsContainer.arrangedSubviews.dropLast().indices {
@@ -327,9 +356,28 @@ class PhotoDetailsViewController: UIViewController {
         scrollView.addSubview(descriptionLabelView)
         scrollView.addSubview(detailsContainer)
         
-        locationButton.addAction(UIAction(handler: { action in
+        let imageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
+        imageView.addGestureRecognizer(imageTapGestureRecognizer)
+        
+        locationButton.addAction(UIAction(handler: { [weak self] action in
+            guard let self = self else { return }
+            let photo = viewModel.photo
             
+            let coordinates = mapView.region.center
+            let regionSpan = mapView.region.span
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: coordinates),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = photo.location?.name
+            mapItem.openInMaps(launchOptions: options)
         }), for: .touchUpInside)
+        
+        refreshControl.addAction(UIAction(handler: { [weak self] action in
+            self?.viewModel.refresh()
+        }), for: .valueChanged)
     }
     
     private func setupConstraints() {
