@@ -246,23 +246,26 @@ extension HomeViewController {
 extension HomeViewController {
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let photo = viewModel.photos[indexPath.row]
-        let urls = [URL(string: photo.user.profileImage.large),
-                    URL(string: photo.urls.full)].compactMap { $0 }
-        
-        prefetcher.startPrefetching(with: urls)
-        
-        if indexPath.row == viewModel.photos.count - 8 {
-            viewModel.fetchPhotos()
+        if let photo = (cell as? PhotoCardCell)?.photo {
+            let urls = [URL(string: photo.user.profileImage.large),
+                        URL(string: photo.urls.full)].compactMap { $0 }
+            
+            prefetcher.startPrefetching(with: urls)
+            
+            if indexPath.row == viewModel.photos.count - 8 {
+                viewModel.fetchPhotos()
+            }
         }
     }
     
     override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let photo = viewModel.photos[indexPath.row]
-        let urls = [URL(string: photo.user.profileImage.large),
-                    URL(string: photo.urls.full)].compactMap { $0 }
-        
-        prefetcher.stopPrefetching(with: urls)
+        if let photo = (cell as? PhotoCardCell)?.photo {
+            let urls = [URL(string: photo.user.profileImage.large),
+                        URL(string: photo.urls.full)].compactMap { $0 }
+            
+            prefetcher.stopPrefetching(with: urls)
+            
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

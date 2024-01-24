@@ -48,8 +48,6 @@ enum PhotosEndpoint: Endpoint {
                     "query": query
                 ]
                 
-                //TODO: Test if it actually becomes URL encoded
-                
                 return params
                 
             default:
