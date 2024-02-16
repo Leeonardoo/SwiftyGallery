@@ -176,8 +176,6 @@ class PhotoCardCell: UICollectionViewCell {
         
         userImageView.request = ImageRequest(url: URL(string: photo.user.profileImage.small)!)
         userLabelView.text = photo.user.name
-        
-        //TODO: Add another ImageView with smaller alpha and blur for an "colored shadow" effect
     }
     
     override func layoutSubviews() {

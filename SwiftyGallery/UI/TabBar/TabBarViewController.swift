@@ -51,7 +51,7 @@ class TabBarViewController: UITabBarController {
 
 extension TabBarViewController: UITabBarControllerDelegate {
     
-    /// We want to handle the reselection of a tab that either goes back to the root
+    /// We want to handle the re-selection of a tab that either goes back to the root
     /// ViewController or scrolls to the top when it's already at the root ViewController.
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         

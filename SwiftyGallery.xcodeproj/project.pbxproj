@@ -36,7 +36,6 @@
 		DF7F1EB92B26472800319980 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F1EB82B26472800319980 /* UIColor+Extensions.swift */; };
 		DF7F1EBB2B264B3A00319980 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F1EBA2B264B3A00319980 /* HomeViewModel.swift */; };
 		DF7F1EBD2B26515800319980 /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F1EBC2B26515800319980 /* Task+Extensions.swift */; };
-		DF7F1EC12B29060C00319980 /* PagingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F1EC02B29060C00319980 /* PagingState.swift */; };
 		DF8FC4012AB7B7A8007AF9A5 /* PhotoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8FC4002AB7B7A8007AF9A5 /* PhotoCardCell.swift */; };
 		DFAAFC792A9417830041D986 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC782A9417830041D986 /* AppDelegate.swift */; };
 		DFAAFC7B2A9417830041D986 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAAFC7A2A9417830041D986 /* SceneDelegate.swift */; };
@@ -95,7 +94,6 @@
 		DF7F1EB82B26472800319980 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DF7F1EBA2B264B3A00319980 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DF7F1EBC2B26515800319980 /* Task+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extensions.swift"; sourceTree = "<group>"; };
-		DF7F1EC02B29060C00319980 /* PagingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingState.swift; sourceTree = "<group>"; };
 		DF8FC4002AB7B7A8007AF9A5 /* PhotoCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardCell.swift; sourceTree = "<group>"; };
 		DFAAFC752A9417830041D986 /* SwiftyGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAAFC782A9417830041D986 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				DF69D5AF2B222019004A59E4 /* Photo.swift */,
-				DF7F1EC02B29060C00319980 /* PagingState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -458,7 +455,6 @@
 				DF7E4B7C2ACA35B700EF29A5 /* UIFont+Extensions.swift in Sources */,
 				DF18A4842A9D6E80005064DB /* Endpoint.swift in Sources */,
 				DFCC2EB42B3DF24500332CF1 /* ZoomableImageView.swift in Sources */,
-				DF7F1EC12B29060C00319980 /* PagingState.swift in Sources */,
 				DF18A4802A9D6ADB005064DB /* NetworkError.swift in Sources */,
 				DFC499572B1AC524009F2947 /* UIScreen+Extensions.swift in Sources */,
 				DF607A912B37688000812393 /* TabBarReselectHandler.swift in Sources */,

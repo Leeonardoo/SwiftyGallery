@@ -16,8 +16,6 @@ import MapKit
 
 //Favorite button (somewhere)
 //Download button and select size (menu)
-
-//Zoom image in another screen
 class PhotoDetailsViewController: UIViewController {
     
     private let viewModel: PhotoDetailsViewModel
