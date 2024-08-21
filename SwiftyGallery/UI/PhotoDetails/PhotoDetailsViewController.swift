@@ -213,7 +213,7 @@ class PhotoDetailsViewController: UIViewController {
             UIBarButtonItem(
                 image: UIImage(systemName: "square.and.arrow.up"),
                 primaryAction: UIAction(handler: { [weak self] action in
-                    guard let self = self,
+                    guard let self,
                           let url = URL(string: viewModel.photo.links.html) else { return }
                     
                     let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
@@ -225,7 +225,7 @@ class PhotoDetailsViewController: UIViewController {
     }
     
     private func setupObservers() {
-        viewModel.photoPublisher
+        viewModel.$photo
             .receive(on: DispatchQueue.main)
             .sink { [weak self] photo in
                 guard let self = self else { return }
@@ -233,7 +233,7 @@ class PhotoDetailsViewController: UIViewController {
             }
             .store(in: &subscriptions)
         
-        viewModel.isLoadingPublisher
+        viewModel.$isLoading
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
                 guard let self = self else { return }

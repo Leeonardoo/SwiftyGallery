@@ -10,6 +10,8 @@ import Combine
 
 class HomeViewModel {
     
+    private let pageSize = 26
+    
     private let service = PhotosService()
     
     private var subscriptions: Set<AnyCancellable> = []
@@ -17,41 +19,10 @@ class HomeViewModel {
     private var currentPage = 1
     private var endReached = false
     
-    private let photosSubject = CurrentValueSubject<[Photo], Never>([])
-    var photosPublisher: AnyPublisher<[Photo], Never> {
-        get {
-            photosSubject.eraseToAnyPublisher()
-        }
-    }
-    var photos: [Photo] {
-        get {
-            photosSubject.value
-        }
-    }
     
-    private let isLoadingSubject = CurrentValueSubject<Bool, Never>(false)
-    var isLoadingPublisher: AnyPublisher<Bool, Never> {
-        get {
-            isLoadingSubject.eraseToAnyPublisher()
-        }
-    }
-    var isLoading: Bool {
-        get {
-            isLoadingSubject.value
-        }
-    }
-    
-    private let errorSubject = CurrentValueSubject<NetworkError<NothingDecodable>?, Never>(nil)
-    var errorPublisher: AnyPublisher<NetworkError<NothingDecodable>?, Never> {
-        get {
-            errorSubject.eraseToAnyPublisher()
-        }
-    }
-    var error: NetworkError<NothingDecodable>? {
-        get {
-            errorSubject.value
-        }
-    }
+    @Published private(set) var photos = [Photo]()
+    @Published private(set) var isLoading = false
+    @Published private(set) var error: NetworkError<BaseError>?
     
     private var currentQuery = ""
     let searchSubject = PassthroughSubject<String, Never>()
@@ -75,33 +46,39 @@ class HomeViewModel {
     func fetchPhotos() {
         guard !isLoading, !endReached else { return }
         
-        isLoadingSubject.send(true)
-        errorSubject.send(nil)
+        isLoading = true
+        error = nil
         Task {
             let result = if currentQuery.isEmpty {
-                await service.fetchPhotos(page: currentPage, perPage: 26)
+                await service.fetchPhotos(page: currentPage, perPage: pageSize)
             } else {
-                await service.searchPhotos(page: currentPage, perPage: 26, query: currentQuery)
+                await service.searchPhotos(page: currentPage, perPage: pageSize, query: currentQuery)
             }
             
             switch result {
                 case .success(let photos):
                     self.currentPage += 1
-                    self.endReached = photos.isEmpty || photos.count < 26
+                    self.endReached = photos.isEmpty || photos.count < pageSize
                     let items = (self.photos + photos).unique(by: \.id)
-                    self.photosSubject.send(items)
+                    await MainActor.run {
+                        self.photos = items
+                    }
                 case .failure(let error):
-                    self.errorSubject.send(error)
+                    await MainActor.run {
+                        self.error = error
+                    }
             }
             
-            self.isLoadingSubject.send(false)
+            await MainActor.run {
+                self.isLoading = false
+            }
         }.store(in: &subscriptions)
     }
     
     func refresh() {
         currentPage = 1
         endReached = false
-        photosSubject.send([])
+        photos = []
         fetchPhotos()
     }
     

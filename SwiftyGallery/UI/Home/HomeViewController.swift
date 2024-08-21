@@ -130,13 +130,13 @@ class HomeViewController: UICollectionViewController {
     }
     
     private func setupObservers() {
-        viewModel.photosPublisher
+        viewModel.$photos
             .receive(on: DispatchQueue.main)
             .sink { [weak self] photos in
                 self?.applySnapshot(photos: photos)
             }.store(in: &subscriptions)
         
-        viewModel.isLoadingPublisher
+        viewModel.$isLoading
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
                 guard let self = self else { return }
@@ -150,7 +150,7 @@ class HomeViewController: UICollectionViewController {
                 }
             }.store(in: &subscriptions)
         
-        viewModel.errorPublisher
+        viewModel.$error
             .receive(on: DispatchQueue.main)
             .sink { [weak self] error in
                 guard let self = self else { return }

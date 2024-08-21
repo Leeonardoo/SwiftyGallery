@@ -11,67 +11,43 @@ import Combine
 class PhotoDetailsViewModel {
     
     private let service = PhotosService()
-    
     private var subscriptions: Set<AnyCancellable> = []
     
-    let photoSubject: CurrentValueSubject<Photo, Never>
-    var photoPublisher: AnyPublisher<Photo, Never> {
-        get {
-            photoSubject.eraseToAnyPublisher()
-        }
-    }
-    var photo: Photo {
-        get {
-            photoSubject.value
-        }
-    }
-    
-    private let isLoadingSubject = CurrentValueSubject<Bool, Never>(false)
-    var isLoadingPublisher: AnyPublisher<Bool, Never> {
-        get {
-            isLoadingSubject.eraseToAnyPublisher()
-        }
-    }
-    var isLoading: Bool {
-        get {
-            isLoadingSubject.value
-        }
-    }
-    
-    private let errorSubject = CurrentValueSubject<NetworkError<NothingDecodable>?, Never>(nil)
-    var errorPublisher: AnyPublisher<NetworkError<NothingDecodable>?, Never> {
-        get {
-            errorSubject.eraseToAnyPublisher()
-        }
-    }
-    var error: NetworkError<NothingDecodable>? {
-        get {
-            errorSubject.value
-        }
-    }
-    
+    @Published private(set) var photo: Photo
+    @Published private(set) var isLoading = false
+    @Published private(set) var error: NetworkError<BaseError>?
     
     init(photo: Photo) {
-        self.photoSubject = CurrentValueSubject(photo)
+        self.photo = photo
         fetchDetails(refresh: false)
     }
     
     private func fetchDetails(refresh: Bool) {
         guard !isLoading else { return }
         
-        isLoadingSubject.send(true)
-        errorSubject.send(nil)
+        if (isLoading) {
+            return
+        }
+        
+        isLoading = true
+        error = nil
         Task {
-            let result = await service.fetchDetails(for: self.photo.slug, refresh: refresh)
+            let result = await service.fetchDetails(for: photo.slug, refresh: refresh)
             
             switch result {
                 case .success(let photo):
-                    self.photoSubject.send(photo)
+                    await MainActor.run {
+                        self.photo = photo
+                    }
                 case .failure(let error):
-                    self.errorSubject.send(error)
+                    await MainActor.run {
+                        self.error = error
+                    }
             }
             
-            self.isLoadingSubject.send(false)
+            await MainActor.run {
+                isLoading = false
+            }
         }.store(in: &subscriptions)
     }
     
