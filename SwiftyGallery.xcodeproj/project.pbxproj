@@ -172,7 +172,6 @@
 			children = (
 				DF607A922B376D1A00812393 /* PhotoDetailsViewController.swift */,
 				DF607A942B376D2700812393 /* PhotoDetailsViewModel.swift */,
-				DF56F00B2B42301B00F48BEF /* LandmarkAnnotation.swift */,
 			);
 			path = PhotoDetails;
 			sourceTree = "<group>";
@@ -204,6 +203,7 @@
 		DF69D5AE2B222002004A59E4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DF56F00B2B42301B00F48BEF /* LandmarkAnnotation.swift */,
 				DF69D5AF2B222019004A59E4 /* Photo.swift */,
 			);
 			path = Model;
@@ -246,16 +246,14 @@
 		DFAAFC922A942A270041D986 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				DFCC2EB52B3DF4C700332CF1 /* ImagePreview */,
 				DFC499512B1ABDAD009F2947 /* CustomViews */,
 				DF18A48C2A9E4613005064DB /* Debug */,
-				DF607A8F2B37675F00812393 /* PhotoDetails */,
 				DFAAFC952A942A470041D986 /* Favorites */,
 				DFAAFC932A942A2C0041D986 /* Home */,
-				DF8FC4002AB7B7A8007AF9A5 /* PhotoCardCell.swift */,
+				DFCC2EB52B3DF4C700332CF1 /* ImagePreview */,
+				DF607A8F2B37675F00812393 /* PhotoDetails */,
 				DF3817BB2AC4EC3700D3153F /* PreviewContainer.swift */,
 				DFAAFC962A942A580041D986 /* TabBar */,
-				DF607A902B37688000812393 /* TabBarReselectHandler.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -265,6 +263,7 @@
 			children = (
 				DFAAFC972A942A7C0041D986 /* HomeViewController.swift */,
 				DF7F1EBA2B264B3A00319980 /* HomeViewModel.swift */,
+				DF8FC4002AB7B7A8007AF9A5 /* PhotoCardCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -280,6 +279,7 @@
 		DFAAFC962A942A580041D986 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				DF607A902B37688000812393 /* TabBarReselectHandler.swift */,
 				DFAAFC7C2A9417830041D986 /* TabBarViewController.swift */,
 			);
 			path = TabBar;
@@ -296,18 +296,18 @@
 		DFAAFC9E2A942BA00041D986 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DF69D5BE2B253D6B004A59E4 /* JSONDecoder+Extensions.swift */,
-				DF7E4B7B2ACA35B700EF29A5 /* UIFont+Extensions.swift */,
-				DF7E4B7D2ACA35C000EF29A5 /* UIButton+Extensions.swift */,
-				DFC499542B1AC50C009F2947 /* UIWindow+Extensions.swift */,
-				DFC499562B1AC524009F2947 /* UIScreen+Extensions.swift */,
-				DF69D5B32B23E9ED004A59E4 /* Logger+Extensions.swift */,
-				DFAAFC9F2A942BAE0041D986 /* String+Extensions.swift */,
-				DFAAFCA12A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift */,
-				DF7F1EB82B26472800319980 /* UIColor+Extensions.swift */,
-				DF7F1EBC2B26515800319980 /* Task+Extensions.swift */,
 				DFCD20D82B41FE540096B523 /* Array+Extensions.swift */,
+				DF69D5BE2B253D6B004A59E4 /* JSONDecoder+Extensions.swift */,
+				DF69D5B32B23E9ED004A59E4 /* Logger+Extensions.swift */,
+				DFAAFCA12A942C8E0041D986 /* NSMutableAttributedStrings+Extensions.swift */,
+				DFAAFC9F2A942BAE0041D986 /* String+Extensions.swift */,
+				DF7F1EBC2B26515800319980 /* Task+Extensions.swift */,
+				DF7E4B7D2ACA35C000EF29A5 /* UIButton+Extensions.swift */,
+				DF7F1EB82B26472800319980 /* UIColor+Extensions.swift */,
+				DF7E4B7B2ACA35B700EF29A5 /* UIFont+Extensions.swift */,
+				DFC499562B1AC524009F2947 /* UIScreen+Extensions.swift */,
 				DFCD20DC2B421A720096B523 /* UIStackView+Extensions.swift */,
+				DFC499542B1AC50C009F2947 /* UIWindow+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -316,8 +316,8 @@
 			isa = PBXGroup;
 			children = (
 				DFC499522B1ABDC0009F2947 /* CustomIntensityVisualEffectView.swift */,
-				DFCC2EB32B3DF24500332CF1 /* ZoomableImageView.swift */,
 				DFCD20DA2B420DF80096B523 /* SingleLineDetailView.swift */,
+				DFCC2EB32B3DF24500332CF1 /* ZoomableImageView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
