@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f090d80b-e401-4b37-a606-8847d483b5bf" name="Changes" comment="a" />
+    <list default="true" id="f090d80b-e401-4b37-a606-8847d483b5bf" name="Changes" comment="a">
+      <change afterPath="$PROJECT_DIR$/.idea/SwiftyGallery.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_blame.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SwiftyGallery.xcodeproj/.idea/SwiftyGallery.xcodeproj.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SwiftyGallery/Data/Api/ErrorMapper.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwiftyGallery.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/SwiftyGallery.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwiftyGallery.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" beforeDir="false" afterPath="$PROJECT_DIR$/SwiftyGallery.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwiftyGallery/Data/Api/AFError+NetworkError.swift" beforeDir="false" afterPath="$PROJECT_DIR$/SwiftyGallery/Data/Api/AFError+NetworkError.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwiftyGallery/Data/Api/BaseError.swift" beforeDir="false" afterPath="$PROJECT_DIR$/SwiftyGallery/Data/Api/UnsplashError.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwiftyGallery/Data/Api/NetworkError.swift" beforeDir="false" afterPath="$PROJECT_DIR$/SwiftyGallery/Data/Api/NetworkError.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwiftyGallery/Data/Service/PhotosService.swift" beforeDir="false" afterPath="$PROJECT_DIR$/SwiftyGallery/Data/Service/PhotosService.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwiftyGallery/UI/Home/HomeViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/SwiftyGallery/UI/Home/HomeViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwiftyGallery/UI/PhotoDetails/PhotoDetailsViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/SwiftyGallery/UI/PhotoDetails/PhotoDetailsViewModel.swift" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,9 +49,15 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/leonardo/Projects/XcodeProjects/SwiftyGallery",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

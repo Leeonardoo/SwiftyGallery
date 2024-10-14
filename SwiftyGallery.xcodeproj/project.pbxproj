@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A79286C42CBD3B2E00AD3B71 /* ErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79286C32CBD3B2E00AD3B71 /* ErrorMapper.swift */; };
 		DF18A4802A9D6ADB005064DB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18A47F2A9D6ADB005064DB /* NetworkError.swift */; };
 		DF18A4822A9D6D3F005064DB /* AFError+NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18A4812A9D6D3F005064DB /* AFError+NetworkError.swift */; };
 		DF18A4842A9D6E80005064DB /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18A4832A9D6E80005064DB /* Endpoint.swift */; };
@@ -26,7 +27,7 @@
 		DF69D5AB2B221A8F004A59E4 /* PhotosEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5AA2B221A8F004A59E4 /* PhotosEndpoint.swift */; };
 		DF69D5AD2B221F3D004A59E4 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5AC2B221F3D004A59E4 /* PhotosService.swift */; };
 		DF69D5B02B222019004A59E4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5AF2B222019004A59E4 /* Photo.swift */; };
-		DF69D5B22B22255E004A59E4 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5B12B22255E004A59E4 /* BaseError.swift */; };
+		DF69D5B22B22255E004A59E4 /* UnsplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5B12B22255E004A59E4 /* UnsplashError.swift */; };
 		DF69D5B42B23E9ED004A59E4 /* Logger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69D5B32B23E9ED004A59E4 /* Logger+Extensions.swift */; };
 		DF69D5BB2B252605004A59E4 /* HelperCoders in Frameworks */ = {isa = PBXBuildFile; productRef = DF69D5BA2B252605004A59E4 /* HelperCoders */; };
 		DF69D5BD2B252605004A59E4 /* MetaCodable in Frameworks */ = {isa = PBXBuildFile; productRef = DF69D5BC2B252605004A59E4 /* MetaCodable */; };
@@ -73,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A79286C32CBD3B2E00AD3B71 /* ErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMapper.swift; sourceTree = "<group>"; };
 		DF18A47F2A9D6ADB005064DB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DF18A4812A9D6D3F005064DB /* AFError+NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFError+NetworkError.swift"; sourceTree = "<group>"; };
 		DF18A4832A9D6E80005064DB /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 		DF69D5AA2B221A8F004A59E4 /* PhotosEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosEndpoint.swift; sourceTree = "<group>"; };
 		DF69D5AC2B221F3D004A59E4 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		DF69D5AF2B222019004A59E4 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		DF69D5B12B22255E004A59E4 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
+		DF69D5B12B22255E004A59E4 /* UnsplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashError.swift; sourceTree = "<group>"; };
 		DF69D5B32B23E9ED004A59E4 /* Logger+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Extensions.swift"; sourceTree = "<group>"; };
 		DF69D5BE2B253D6B004A59E4 /* JSONDecoder+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extensions.swift"; sourceTree = "<group>"; };
 		DF7E4B7B2ACA35B700EF29A5 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
@@ -154,7 +156,8 @@
 				DF18A47F2A9D6ADB005064DB /* NetworkError.swift */,
 				DF18A4812A9D6D3F005064DB /* AFError+NetworkError.swift */,
 				DF18A48A2A9E4546005064DB /* Session+Extensions.swift */,
-				DF69D5B12B22255E004A59E4 /* BaseError.swift */,
+				DF69D5B12B22255E004A59E4 /* UnsplashError.swift */,
+				A79286C32CBD3B2E00AD3B71 /* ErrorMapper.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -426,8 +429,9 @@
 				DF607A952B376D2700812393 /* PhotoDetailsViewModel.swift in Sources */,
 				DFAAFC982A942A7C0041D986 /* HomeViewController.swift in Sources */,
 				DF18A48B2A9E4546005064DB /* Session+Extensions.swift in Sources */,
-				DF69D5B22B22255E004A59E4 /* BaseError.swift in Sources */,
+				DF69D5B22B22255E004A59E4 /* UnsplashError.swift in Sources */,
 				DF18A4822A9D6D3F005064DB /* AFError+NetworkError.swift in Sources */,
+				A79286C42CBD3B2E00AD3B71 /* ErrorMapper.swift in Sources */,
 				DF69D5B42B23E9ED004A59E4 /* Logger+Extensions.swift in Sources */,
 				DFCC2EB72B3DF4D600332CF1 /* ImagePreviewViewController.swift in Sources */,
 				DFAAFC832A9417830041D986 /* SwiftyGallery.xcdatamodeld in Sources */,
@@ -683,7 +687,7 @@
 			repositoryURL = "https://github.com/kean/Pulse";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.3;
+				minimumVersion = 4.1.1;
 			};
 		};
 		DF3817C22AC6331B00D3153F /* XCRemoteSwiftPackageReference "Nuke" */ = {

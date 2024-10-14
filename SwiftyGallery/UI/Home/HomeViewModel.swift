@@ -22,7 +22,7 @@ class HomeViewModel {
     
     @Published private(set) var photos = [Photo]()
     @Published private(set) var isLoading = false
-    @Published private(set) var error: NetworkError<BaseError>?
+    @Published private(set) var error: NetworkError<UnsplashError>?
     
     private var currentQuery = ""
     let searchSubject = PassthroughSubject<String, Never>()

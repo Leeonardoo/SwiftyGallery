@@ -11,7 +11,7 @@ import OSLog
 
 struct PhotosService {
     
-    func fetchPhotos(page: Int, perPage: Int, refresh: Bool = false) async -> Result<[Photo], NetworkError<BaseError>> {
+    func fetchPhotos(page: Int, perPage: Int, refresh: Bool = false) async -> Result<[Photo], NetworkError<UnsplashError>> {
         let url = PhotosEndpoint.photoList(page: page, perPage: perPage)
         
         if refresh {
@@ -28,11 +28,11 @@ struct PhotosService {
             case .success(let success):
                 return .success(success)
             case .failure(let failure):
-                return .failure(failure.asNetworkError(with: BaseError.self, data: response.data))
+                return .failure(failure.asNetworkError(with: UnsplashError.self, data: response.data))
         }
     }
     
-    func searchPhotos(page: Int, perPage: Int, refresh: Bool = false, query: String) async -> Result<[Photo], NetworkError<BaseError>> {
+    func searchPhotos(page: Int, perPage: Int, refresh: Bool = false, query: String) async -> Result<[Photo], NetworkError<UnsplashError>> {
         let url = PhotosEndpoint.photoSearch(page: page, perPage: perPage, query: query)
         
         if refresh {
@@ -49,11 +49,11 @@ struct PhotosService {
             case .success(let success):
                 return .success(success.results)
             case .failure(let failure):
-                return .failure(failure.asNetworkError(with: BaseError.self, data: response.data))
+                return .failure(failure.asNetworkError(with: UnsplashError.self, data: response.data))
         }
     }
     
-    func fetchDetails(for slug: String, refresh: Bool = false) async -> Result<Photo, NetworkError<BaseError>> {
+    func fetchDetails(for slug: String, refresh: Bool = false) async -> Result<Photo, NetworkError<UnsplashError>> {
         let url = PhotosEndpoint.photoDetails(slug: slug)
         
         if refresh {
@@ -70,7 +70,7 @@ struct PhotosService {
             case .success(let success):
                 return .success(success)
             case .failure(let failure):
-                return .failure(failure.asNetworkError(with: BaseError.self, data: response.data))
+                return .failure(failure.asNetworkError(with: UnsplashError.self, data: response.data))
         }
     }
 }

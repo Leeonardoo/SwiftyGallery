@@ -7,13 +7,17 @@
 
 import Foundation
 
-struct BaseError: Decodable, CustomStringConvertible {
+struct UnsplashError: ErrorMapper {
+    
+    var isEmpty: Bool {
+        description.isEmpty
+    }
     
     var description: String {
         get {
-            base
+            errors?.joined(separator: "\n") ?? ""
         }
     }
     
-    let base: String
+    let errors: [String]?
 }

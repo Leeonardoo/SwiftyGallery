@@ -166,6 +166,10 @@ class HomeViewController: UICollectionViewController {
                 
                 errorContainer.isHidden = false
                 errorLabel.text = error.localizedDescription
+                
+                let configuration = UIImage.SymbolConfiguration(paletteColors: [.systemGray])
+                errorIcon.image = UIImage(systemName: error.iconSystemName,
+                                          withConfiguration: configuration)
             }
             .store(in: &subscriptions)
     }

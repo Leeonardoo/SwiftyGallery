@@ -15,7 +15,7 @@ class PhotoDetailsViewModel {
     
     @Published private(set) var photo: Photo
     @Published private(set) var isLoading = false
-    @Published private(set) var error: NetworkError<BaseError>?
+    @Published private(set) var error: NetworkError<UnsplashError>?
     
     init(photo: Photo) {
         self.photo = photo
